@@ -1,81 +1,57 @@
-#include <vector>
 #include <iostream>
 #include "Queue.cpp"
+using namespace std;
 template<class T>
-class Node
-{
-public:
-	T data;
-	Node* next;
-};
-
-template<class T, int N>
 class LinkedListQueue : Queue<T>
 {
 public:
-	LinkedListQueue()
+	void push(T data, int priority)
 	{
-		initialize_queue();
-	}
-	void add(T data, int priority)
-	{
-		Node<T>* temp = new Node<T>();
+		Node* current = head;
+		Node* temp = new Node();
 		temp->data = data;
-		temp->next = arr[priority];
-		arr[priority] = temp;
-	}
-	T lookup_elem()
-	{
-		Node<T>* prev;
-		int j;
-		Node<T>* current = lookup_elem(&prev, j);
-		return current->data;
-	}
-	T pop()
-	{
-		Node<T>* prev;
-		int j;
-		Node<T>* ondelete = lookup_elem(&prev, j);
-		T temp = ondelete->data;
-		if (prev)
+		temp->priority = priority;
+		if (head == NULL)
 		{
-			prev->next = ondelete->next;
+			temp->next = NULL;
+			head = temp;
+			return;
+		}
+		if (head->priority > priority)
+		{
+			temp->next = head;
+			head = temp;
 		}
 		else
 		{
-			arr[j] = NULL;
-		}
-		delete ondelete;
-		return temp;
 
+			while (current->next != NULL && current->next->priority < priority)
+			{
+				current = current->next;
+			}
+
+			temp->next = current->next;
+			current->next = temp;
+		}
+	}
+	T pop()
+	{
+		Node* temp = head;
+		T data = head->data;
+		head = head->next;
+		delete temp;
+		return data;
+	}
+	T lookup_elem()
+	{
+		return head->data;
 	}
 private:
-	Node<T>* arr[N];
-	Node<T>* lookup_elem(Node<T>** prev, int& j)
+	struct Node
 	{
-		Node<T>* temp = NULL;
-		for (int i = 0; i < N; i++)
-		{
-			*prev = NULL;
-			temp = arr[i];
-			if (temp)
-			{
-				j = i;
-				while (temp->next)
-				{
-					*prev = temp;
-					temp = temp->next;
-				}
-				return temp;
-			}
-		}
-		return NULL;
-	}
-	void initialize_queue()
-	{
-		for (int i = 0; i < N; i++)
-		{
-			arr[i] = NULL;
-		}
-	}
+		T data;
+		Node* next;
+		int priority;
+	};
+	Node* head = NULL;
 };
