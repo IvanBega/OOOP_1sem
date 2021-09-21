@@ -1,5 +1,5 @@
-#include <vector>
 #include "Queue.cpp"
+#include <vector>
 template<class T>
 class BinaryHeapQueue : Queue<T>
 {
