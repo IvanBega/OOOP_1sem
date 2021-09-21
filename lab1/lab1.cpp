@@ -4,5 +4,11 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    BinaryHeapQueue<int> bq;
+    bq.push(100, 1);
+    bq.push(200, 1);
+    bq.push(300, 1);
+    std::cout << bq.pop() << std::endl;
+    std::cout << bq.pop() << std::endl;
+    std::cout << bq.pop() << std::endl;
 }

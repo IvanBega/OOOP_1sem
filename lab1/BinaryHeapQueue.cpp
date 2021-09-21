@@ -1,8 +1,7 @@
-using namespace std;
 #include <vector>
-
+#include "Queue.cpp"
 template<class T>
-class BinaryHeapQueue
+class BinaryHeapQueue : Queue<T>
 {
 public:
 
@@ -21,7 +20,7 @@ public:
 	T pop()
 	{
 		T data = arr[0].data;
-		swap(arr[0], arr[size]);
+		std::swap(arr[0], arr[size]);
 		arr.pop_back();
 		size--;
 
@@ -38,7 +37,7 @@ private:
 			data = Data; priority = Priority;
 		}
 	};
-	vector<elem> arr;
+	std::vector<elem> arr;
 	int size = -1;
 	int parentIndex(int i)
 	{
@@ -57,7 +56,7 @@ private:
 	{
 		while (i > 0 && arr[parentIndex(i)].priority > arr[i].priority)
 		{
-			swap(arr[parentIndex(i)], arr[i]);
+			std::swap(arr[parentIndex(i)], arr[i]);
 			i = parentIndex(i);
 		}
 	}
@@ -78,7 +77,7 @@ private:
 
 		if (i != max)
 		{
-			swap(arr[i], arr[max]);
+			std::swap(arr[i], arr[max]);
 			moveDown(max);
 		}
 	}

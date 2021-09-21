@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-using namespace std;
+#include "Queue.cpp"
 template<class T>
 class Node
 {
@@ -10,7 +10,7 @@ public:
 };
 
 template<class T, int N>
-class LinkedListQueue
+class LinkedListQueue : Queue<T>
 {
 public:
 	LinkedListQueue()
@@ -23,19 +23,6 @@ public:
 		temp->data = data;
 		temp->next = arr[priority];
 		arr[priority] = temp;
-	}
-	void display()
-	{
-		for (int i = 0; i < N; i++)
-		{
-			Node<T>* temp = arr[i];
-			while (temp)
-			{
-				std::cout << temp->data << " ";
-				temp = temp->next;
-			}
-			std::cout << "\n";
-		}
 	}
 	T lookup_elem()
 	{
