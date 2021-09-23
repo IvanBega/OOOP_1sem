@@ -1,5 +1,7 @@
+#pragma once
 #include "Queue.cpp"
 #include <vector>
+
 template <class T>
 class VectorQueue : Queue<T>
 {

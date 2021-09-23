@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include "Queue.cpp"
 using namespace std;
@@ -17,15 +18,16 @@ public:
 			head = temp;
 			return;
 		}
-		if (head->priority > priority)
+		if (priority < head->priority)
 		{
+			std::cout << "head priority is " << head->priority << ", inserting priority is " << priority << endl;
 			temp->next = head;
 			head = temp;
 		}
 		else
 		{
 
-			while (current->next != NULL && current->next->priority < priority)
+			while (current->next != NULL && current->next->priority <= priority)
 			{
 				current = current->next;
 			}

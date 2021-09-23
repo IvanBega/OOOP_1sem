@@ -1,4 +1,5 @@
-﻿#include <vector>
+﻿#pragma once
+#include <vector>
 #include "LinkedListQueue.cpp"
 #include "BinaryHeapQueue.cpp"
 #include "Date.cpp"
@@ -7,13 +8,11 @@
 
 int main()
 {
-    VectorQueue<int> v;
-    v.push(10, 5);
-    v.push(7, 5);
-    v.push(12, 5);
-    v.push(9, 5);
-    std::cout << v.pop() << endl;
-    std::cout << v.pop() << endl;
-    std::cout << v.pop() << endl;
-    std::cout << v.pop() << endl;
+    LinkedListQueue<int> q;
+    q.push(1, 1);
+    q.push(2, 1);
+    q.push(3, 1);
+    std::cout << q.pop() << std::endl;
+    std::cout << q.pop() << std::endl;
+    std::cout << q.pop() << std::endl;
 }

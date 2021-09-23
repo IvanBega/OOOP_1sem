@@ -1,5 +1,7 @@
+#pragma once
 #include "Queue.cpp"
 #include <vector>
+
 template<class T>
 class BinaryHeapQueue : Queue<T>
 {
@@ -7,7 +9,7 @@ public:
 
 	void push(T data, int priority)
 	{
-		size = size + 1;
+		size += 1;
 		elem temp(data, priority);
 		arr.push_back(temp);
 
@@ -54,7 +56,7 @@ private:
 	}
 	void heapify(int i)
 	{
-		while (i > 0 && arr[parentIndex(i)].priority > arr[i].priority)
+		while (i > 0 && arr[parentIndex(i)].priority > arr[i].priority) // replace > to >=
 		{
 			std::swap(arr[parentIndex(i)], arr[i]);
 			i = parentIndex(i);
@@ -64,13 +66,13 @@ private:
 	{
 		int max = i;
 		int l = leftChildIndex(i);
-		if (l <= size && arr[l].priority < arr[max].priority)
+		if (l <= size && arr[l].priority < arr[max].priority) // replace < to >=
 		{
 			max = l;
 		}
 
 		int r = rightChildIndex(i);
-		if (r <= size && arr[r].priority < arr[max].priority)
+		if (r <= size && arr[r].priority < arr[max].priority) // replaced < to <=
 		{
 			max = r;
 		}
