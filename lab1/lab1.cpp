@@ -9,17 +9,6 @@
 
 int main()
 {
-    BSTQueue<int> q;
-    q.push(1, 1);
-    q.push(2, 2);
-    q.push(3, 3);
-    std::cout << q.pop() << std::endl;
-    std::cout << q.pop() << std::endl;
-    std::cout << q.pop() << std::endl;
-    q.push(1, 1);
-    q.push(2, 2);
-    q.push(3, 3);
-    std::cout << q.pop() << std::endl;
-    std::cout << q.pop() << std::endl;
-    std::cout << q.pop() << std::endl;
+    Date d(2021, 9, 23, 1, 1, 1);
+    std:cout << d.getDayByDate();
 }

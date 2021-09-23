@@ -29,6 +29,28 @@ public:
 			return false;
 		return true;
 	}
+	int getDayByDate()
+	{
+		int corrected_month;
+		int corrected_year;
+		if (month >= 3 && month <= 12)
+		{
+			corrected_month = month - 2;
+			corrected_year = year / 100;
+		}
+		else
+		{
+			corrected_month = month + 10;
+			corrected_year = year / 100 - 1;
+		}
+
+		double d1 = 2.6 * corrected_month - 0.2;
+		double d1_floor;
+		std::modf(d1, &d1_floor);
+		int century = year / 100;
+		int result = day + d1_floor - 2 * century + corrected_year + corrected_year / 4 + century / 4;
+		return result % 7;
+	}
 
 private:
 	const unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31,  30, 31 };
