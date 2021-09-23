@@ -36,20 +36,23 @@ public:
 		if (month >= 3 && month <= 12)
 		{
 			corrected_month = month - 2;
-			corrected_year = year / 100;
+			corrected_year = year % 100;
 		}
 		else
 		{
 			corrected_month = month + 10;
-			corrected_year = year / 100 - 1;
+			corrected_year = year % 100 - 1;
+			if (corrected_year < 0)
+				corrected_year = 99;
 		}
 
 		double d1 = 2.6 * corrected_month - 0.2;
 		double d1_floor;
 		std::modf(d1, &d1_floor);
 		int century = year / 100;
-		int result = day + d1_floor - 2 * century + corrected_year + corrected_year / 4 + century / 4;
-		return result % 7;
+		//int result = day + d1_floor - 2 * century + corrected_year + corrected_year / 4 + century / 4;
+		int result = day + ((13 * corrected_month - 1) / 5) + corrected_year + corrected_year / 4 + century / 4 - 2 * century;
+		return (result - 1) % 7;
 	}
 
 private:
