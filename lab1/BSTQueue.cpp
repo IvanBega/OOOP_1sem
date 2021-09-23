@@ -7,11 +7,21 @@ class BSTQueue : Queue<T>
 public:
 	void push(T data, int priority)
 	{
-		insert(head, data, priority);
+		if (head == NULL)
+		{
+			head = new Tree(data, priority);
+		}
+		else
+			insert(head, data, priority);
 	}
 	T lookup_elem()
 	{
-		return NULL;
+		Tree* current = head;
+		while (current->lt)
+		{
+			current = current->lt;
+		}
+		return current->data;
 	}
 	T pop()
 	{

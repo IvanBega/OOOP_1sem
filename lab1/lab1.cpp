@@ -11,9 +11,8 @@ int main()
 {
     BSTQueue<int> q;
     q.push(1, 1);
+    q.push(150, 3);
     q.push(2, 1);
     q.push(3, 1);
-    /*std::cout << q.pop() << std::endl;
-    std::cout << q.pop() << std::endl;
-    std::cout << q.pop() << std::endl;*/
+    std::cout << q.lookup_elem();
 }
