@@ -16,16 +16,28 @@ public:
 	}
 	T lookup_elem()
 	{
-		Tree* current = head;
-		while (current->lt)
-		{
-			current = current->lt;
-		}
-		return current->data;
+		return minTree(head)->data;
 	}
 	T pop()
 	{
-		return NULL;
+		if (head->lt == NULL)
+		{
+			Tree* temp = head;
+			T data = temp->data;
+			head = head->rt;
+			delete temp;
+			return data;
+		}
+		return delete_tree(head);
+	}
+	void display()
+	{
+		Tree* current = head;
+		while (current)
+		{
+			std::cout << current->priority << std::endl;
+			current = current->rt;
+		}
 	}
 private:
 	struct Tree
@@ -44,7 +56,7 @@ private:
 	{
 		if (current == NULL)
 		{
-			return new Tree(data, priority);
+			return new Tree(data, priority, NULL, NULL);
 		}
 		if (priority < current->priority)
 		{
@@ -54,5 +66,31 @@ private:
 		{
 			current->rt = insert(current->rt, data, priority);
 		}
+		return current;
+	}
+	Tree* minTree(Tree* current)
+	{
+		while (current->lt)
+		{
+			current = current->lt;
+		}
+		return current;
+	}
+	T delete_tree(Tree* current)
+	{
+		Tree* prev = NULL;
+		while (current->lt)
+		{
+			prev = current;
+			current = current->lt;
+		}
+		if (prev && current->rt)
+		{
+			prev->lt = current->rt;
+		}
+		T data = current->data;
+		delete current;
+		return data;
+
 	}
 };
