@@ -1,4 +1,3 @@
-﻿  Date.cpp
-  lab1.cpp
-  Generating Code...
+﻿  lab1.cpp
+D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(81,21): warning C4244: '=': conversion from 'double' to 'short', possible loss of data
   lab1.vcxproj -> D:\Программирование\C++\2 курс\1 семестр\lab1\Debug\lab1.exe

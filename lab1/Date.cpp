@@ -54,25 +54,6 @@ public:
 		int result = day + ((13 * corrected_month - 1) / 5) + corrected_year + corrected_year / 4 + century / 4 - 2 * century;
 		return (result - 1) % 7;
 	}
-	long long dateToSec()
-	{
-		long long sec = 0;
-		sec = static_cast<int64_t>(year) * sec_in_year + (static_cast<int64_t>(day) - 1) * sec_in_day; // years + days
-
-		sec += static_cast<int64_t>(year / 4) * sec_in_day; // leap days
-
-		for (int i = 0; i < month; i++)
-		{
-			sec += days_in_month[i] * static_cast<int64_t>(sec_in_day); // month
-		}
-		if (year % 4 == 0 && month < 3)
-		{
-			sec -= sec_in_day;
-		}
-
-		sec += hour * 3600 + minute * 60 + sec;
-		return (long long) sec;
-	}
 	int dateToDays()
 	{
 		int days = 0;
@@ -89,12 +70,31 @@ public:
 		}
 		return days;
 	}
+	void addDate(Date date)
+	{
+
+	}
+	static Date dateFromDays(int days)
+	{
+		unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31,  30, 31 };
+		Date temp(0,0,0,0,0,0);
+		temp.year = (days / 365.25);
+		days -= temp.year * 365 + (temp.year-1) / 4;
+		if (temp.year % 4 == 0)
+			days_in_month[1] = 29;
+
+		int i = 0;
+		while (days > days_in_month[i])
+		{
+			temp.month++;
+			days -= days_in_month[i];
+			i++;
+		}
+		temp.day = days;
+		return temp;
+	}
 
 private:
-	Date dateFromSec(long long sec)
-	{
-		Date temp(0,0,0,0,0,0);
-	}
 	const unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31,  30, 31 };
 	const int sec_in_year = 31536000;
 	const int sec_in_day = 86400;
