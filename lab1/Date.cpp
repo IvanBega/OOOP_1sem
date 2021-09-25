@@ -93,6 +93,10 @@ public:
 		temp.day = days;
 		return temp;
 	}
+	static int dateDiffInDays(Date date1, Date date2)
+	{
+		return date2.dateToDays() - date1.dateToDays();
+	}
 
 private:
 	const unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31,  30, 31 };
