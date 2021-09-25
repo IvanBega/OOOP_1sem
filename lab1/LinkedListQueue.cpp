@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include "Queue.cpp"
-using namespace std;
 template<class T>
 class LinkedListQueue : Queue<T>
 {
@@ -20,7 +19,7 @@ public:
 		}
 		if (priority < head->priority)
 		{
-			std::cout << "head priority is " << head->priority << ", inserting priority is " << priority << endl;
+			std::cout << "head priority is " << head->priority << ", inserting priority is " << priority << std::endl;
 			temp->next = head;
 			head = temp;
 		}
