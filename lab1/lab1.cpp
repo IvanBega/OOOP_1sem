@@ -11,8 +11,6 @@
 
 int main()
 {
-    Date d1(2018, 3, 3, 0, 0, 0);
-    //Date d2(2019, 3, 3, 0, 0, 0);
-    Date temp = Date::dateFromDays(d1.dateToDays());
-    temp.print();
+    Date d1(2020, 1, 5, 0, 0, 0);
+    Date d2(2021, 1, 5, 0, 0, 0);
 }

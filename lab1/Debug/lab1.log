@@ -1,7 +1,6 @@
 ﻿  Date.cpp
-D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(81,21): warning C4244: '=': conversion from 'double' to 'short', possible loss of data
-D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(98,10): error C2065: 'datw1': undeclared identifier
+D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(100,21): warning C4244: '=': conversion from 'double' to 'short', possible loss of data
   lab1.cpp
-D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(81,21): warning C4244: '=': conversion from 'double' to 'short', possible loss of data
-D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(98,10): error C2065: 'datw1': undeclared identifier
+D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(100,21): warning C4244: '=': conversion from 'double' to 'short', possible loss of data
   Generating Code...
+  lab1.vcxproj -> D:\Программирование\C++\2 курс\1 семестр\lab1\Debug\lab1.exe

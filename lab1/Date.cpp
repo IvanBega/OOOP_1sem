@@ -54,32 +54,51 @@ public:
 		int result = day + ((13 * corrected_month - 1) / 5) + corrected_year + corrected_year / 4 + century / 4 - 2 * century;
 		return (result - 1) % 7;
 	}
-	int dateToDays()
-	{
-		int days = 0;
-		days += year * 365 + day; // years + days
-		days += year / 4; // leap days
+	//int toDays()
+	//{
+	//	int days = 0;
+	//	days += year * 365 + day; // years + days
+	//	days += year / 4; // leap days
 
-		for (int i = 0; i < month; i++)
-		{
-			days += days_in_month[i];
-		}
-		if (year % 4 == 0 && month < 3 && days != 29)
-		{
-			days -= 1;
-		}
-		return days;
-	}
-	void addDate(Date date)
+	//	for (int i = 0; i < month; i++)
+	//	{
+	//		days += days_in_month[i];
+	//	}
+	//	if (year % 4 == 0 && month < 3 && days != 29)
+	//	{
+	//		days -= 1;
+	//	}
+	//	return days;
+	//}
+	unsigned toSeconds()
 	{
-
+		int sec = 0;
+		sec += (year - 2000) * sec_in_year; // years to seconds
+		sec += (year - 2000) / 4 * sec_in_day; // leap days to seconds
+		for (int i = 0; i < month - 1; i++)
+		{
+			sec += days_in_month[i] * sec_in_day; // month to sec
+		}
+		sec += (day - 1) * sec_in_day;
+		sec += hour * 3600 + minute * 60 + second;
 	}
+
+private:
+	static constexpr const unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31,  30, 31 };
+	static const int sec_in_year = 31536000;
+	static const int sec_in_day = 86400;
+	short year = 0;
+	short day = 1;
+	short month = 1;
+	short hour = 0;
+	short minute = 0;
+	short second = 0;
 	static Date dateFromDays(int days)
 	{
 		unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31,  30, 31 };
-		Date temp(0,0,0,0,0,0);
+		Date temp(0, 0, 0, 0, 0, 0);
 		temp.year = (days / 365.25);
-		days -= temp.year * 365 + (temp.year-1) / 4;
+		days -= temp.year * 365 + (temp.year - 1) / 4;
 		if (temp.year % 4 == 0)
 			days_in_month[1] = 29;
 
@@ -93,21 +112,6 @@ public:
 		temp.day = days;
 		return temp;
 	}
-	static int dateDiffInDays(Date date1, Date date2)
-	{
-		return date2.dateToDays() - date1.dateToDays();
-	}
-
-private:
-	const unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31,  30, 31 };
-	const int sec_in_year = 31536000;
-	const int sec_in_day = 86400;
-	short year = 0;
-	short day = 1;
-	short month = 1;
-	short hour = 0;
-	short minute = 0;
-	short second = 0;
 };
 
 
