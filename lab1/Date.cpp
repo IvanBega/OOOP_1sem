@@ -4,10 +4,16 @@
 class Date
 {
 public:
-	Date(unsigned short _year, unsigned short _month, unsigned short _day,
+	/*Date(unsigned short _year, unsigned short _month, unsigned short _day,
 		unsigned short _hour, unsigned short _minute, unsigned short _second)
 	{
 		year = _year; month = _month; day = _day; hour = _hour; minute = _minute; second = _second;
+	}*/
+	Date(unsigned short _year, unsigned short _month, unsigned short _day,
+		unsigned short _hour, unsigned short _minute, unsigned short _second) :
+		year(_year), month(_month), day(_day), hour(_hour), minute(_minute), second(_second)
+	{
+
 	}
 	Date()
 	{
@@ -63,6 +69,10 @@ private:
 	unsigned short int hour = 0;
 	unsigned short int minute = 0;
 	unsigned short int second = 0;
+	enum DayOfWeek
+	{
+		Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
+	};
 };
 
 

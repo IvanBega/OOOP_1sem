@@ -9,6 +9,6 @@
 
 int main()
 {
-    Date d(2021, 9, 23, 1, 1, 1);
+    Date d(2011, 9, 1, 1, 1, 1);
     std:cout << d.getDayByDate();
 }
