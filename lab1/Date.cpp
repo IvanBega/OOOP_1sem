@@ -54,37 +54,59 @@ public:
 		int result = day + ((13 * corrected_month - 1) / 5) + corrected_year + corrected_year / 4 + century / 4 - 2 * century;
 		return (result - 1) % 7;
 	}
-	//int toDays()
-	//{
-	//	int days = 0;
-	//	days += year * 365 + day; // years + days
-	//	days += year / 4; // leap days
-
-	//	for (int i = 0; i < month; i++)
-	//	{
-	//		days += days_in_month[i];
-	//	}
-	//	if (year % 4 == 0 && month < 3 && days != 29)
-	//	{
-	//		days -= 1;
-	//	}
-	//	return days;
-	//}
 	unsigned toSeconds()
 	{
 		int sec = 0;
-		sec += (year - 2000) * sec_in_year; // years to seconds
-		sec += (year - 2000) / 4 * sec_in_day; // leap days to seconds
+		sec += (year - 2001) * sec_in_year; // years to seconds
+		sec += (year - 2001) / 4 * sec_in_day; // leap days to seconds
 		for (int i = 0; i < month - 1; i++)
 		{
 			sec += days_in_month[i] * sec_in_day; // month to sec
 		}
-		sec += (day - 1) * sec_in_day;
+		sec += day * sec_in_day;
 		sec += hour * 3600 + minute * 60 + second;
-	}
 
+		if (year % 4 == 0 && month < 3)
+		{
+			sec -= sec_in_day;
+		}
+		return sec;
+	}
+	static Date secondsToDate(unsigned sec)
+	{
+		Date temp(0,0, 0,0,0,0);
+		temp.year += (sec / (sec_in_year + 0.25 * sec_in_day));
+		sec -= temp.year * sec_in_year + sec_in_day * (temp.year) / 4;
+		int i = 0;
+		while (sec >= days_in_month[i] * sec_in_day)
+		{
+			if (i == 1 && temp.year % 4 == 0)
+			{
+				if (sec >= 29 * sec_in_day)
+				{
+					sec -= 29 * sec_in_day;
+				}
+				else
+					break;
+			}
+			else
+			{
+				sec -= days_in_month[i] * sec_in_day;
+			}
+			temp.month++;
+			i++;
+		}
+		temp.day += (sec / sec_in_day);
+		sec -= (temp.day) * sec_in_day;
+		temp.hour = sec / 3600;
+		sec -= temp.hour * 3600;
+		temp.minute = sec / 60;
+		sec -= temp.minute * 60;
+		temp.second = sec;
+		return temp;
+	}
 private:
-	static constexpr const unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31,  30, 31 };
+	static constexpr const unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	static const int sec_in_year = 31536000;
 	static const int sec_in_day = 86400;
 	short year = 0;

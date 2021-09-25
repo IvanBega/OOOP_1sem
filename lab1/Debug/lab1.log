@@ -1,6 +1,5 @@
-﻿  Date.cpp
-D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(100,21): warning C4244: '=': conversion from 'double' to 'short', possible loss of data
-  lab1.cpp
-D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(100,21): warning C4244: '=': conversion from 'double' to 'short', possible loss of data
-  Generating Code...
+﻿  lab1.cpp
+D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(78,1): warning C4244: '+=': conversion from 'double' to 'short', possible loss of data
+D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(81,14): warning C4018: '>=': signed/unsigned mismatch
+D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(122,21): warning C4244: '=': conversion from 'double' to 'short', possible loss of data
   lab1.vcxproj -> D:\Программирование\C++\2 курс\1 семестр\lab1\Debug\lab1.exe
