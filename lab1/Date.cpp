@@ -39,6 +39,7 @@ public:
 	}
 	int getDayByDate()
 	{
+		// 0 - Monday, ..., 6 - Sunday
 		int corrected_month;
 		int corrected_year = year;
 		if (month < 3)
@@ -135,7 +136,7 @@ public:
 	}*/
 	void addDate(Date date)
 	{
-		addDate(date.year, date.month, date.day);
+		addDate(date.year, date.month, date.day, date.hour, date.minute, date.second);
 	}
 	void addDate(short Year, short Month, short Day)
 	{
@@ -222,6 +223,21 @@ public:
 		}
 
 		year -= Year;
+	}
+	void subtractDate(short Year, short Month, short Day, short Hour, short Minute, short Second)
+	{
+		subtractDate(Year, Month, Day);
+		int time = (hour * 3600 + minute * 60 + second) - (Hour * 3600 + Minute * 60 + Second);
+		if (time < 0)
+		{
+			subtractDate(0, 0, 1);
+			time = sec_in_day + time;
+		}
+		hour = time / 3600;
+		time = time - 3600 * hour;
+		minute = time / 60;
+		time = time - 60 * minute;
+		second = time;
 	}
 	static int toDays(short Year, short Month, short Day)
 	{
