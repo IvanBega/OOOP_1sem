@@ -168,6 +168,21 @@ public:
 
 		year += Year;
 	}
+	void addDate(short Year, short Month, short Day, short Hour, short Minute, short Second)
+	{
+		addDate(Year, Month, Day);
+		int time = Hour * 3600 + Minute * 60 + Second + hour * 3600 + minute * 60 + second;
+		if (time >= sec_in_day)
+		{
+			addDate(0, 0, 1);
+			time = time % sec_in_day;
+		}
+		hour = time / 3600;
+		time = time - 3600 * hour;
+		minute = time / 60;
+		time = time - 60 * minute;
+		second = time;
+	}
 	void subtractDate(short Year, short Month, short Day)
 	{
 		if (day - Day <= 0)
