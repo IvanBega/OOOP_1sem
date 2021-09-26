@@ -91,49 +91,6 @@ public:
 		date1.subtractDate(date2.year, date2.month, date2.day);
 		return date1;
 	}
-	/*void add(short Year, short Month, short Day)
-	{
-		int days = Date::toDays(Year, Month, Day);
-		while (days >= 365)
-		{
-			if (year % 4 == 3 && days >= 366)
-			{
-				days -= 366;
-			}
-			else
-			{
-				days -= 365;
-			}
-			year += 1;
-		}
-		while (days >= days_in_month[month - 1])
-		{
-			if (year % 4 == 0 && month == 2 && days >= 29)
-			{
-				days -= 29;
-			}
-			else
-			{
-				days -= days_in_month[month - 1];
-			}
-			month++;
-			if (month > 12)
-			{
-				month = 1;
-				year++;
-			}
-		}
-		if (days > days_in_month[month - 1] - day)
-		{
-			if (year % 4 == 0 && month == 2)
-			{
-				if (days > 29 - day)
-				{
-
-				}
-			}
-		}
-	}*/
 	void addDate(Date date)
 	{
 		addDate(date.year, date.month, date.day, date.hour, date.minute, date.second);
@@ -257,7 +214,6 @@ public:
 	}
 private:
 	static constexpr const unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-	static const int sec_in_year = 31536000;
 	static const int sec_in_day = 86400;
 	short year = 0;
 	short day = 1;
@@ -265,25 +221,6 @@ private:
 	short hour = 0;
 	short minute = 0;
 	short second = 0;
-	/*static Date dateFromDays(int days)
-	{
-		unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31,  30, 31 };
-		Date temp(0, 0, 0, 0, 0, 0);
-		temp.year = (days / 365.25);
-		days -= temp.year * 365 + (temp.year - 1) / 4;
-		if (temp.year % 4 == 0)
-			days_in_month[1] = 29;
-
-		int i = 0;
-		while (days > days_in_month[i])
-		{
-			temp.month++;
-			days -= days_in_month[i];
-			i++;
-		}
-		temp.day = days;
-		return temp;
-	}*/
 };
 
 
