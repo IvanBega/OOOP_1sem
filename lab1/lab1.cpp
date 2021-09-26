@@ -11,6 +11,7 @@
 
 int main()
 {
-    Date d1(3, 3, 8,0,0,0);
-    std::cout << Date::toDays(3, 3, 8);
+    Date d1(2020, 2, 1,0,0,0);
+    d1.addDate(8, 5, 30);
+    d1.print();
 }

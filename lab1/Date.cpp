@@ -117,9 +117,79 @@ public:
 		int sec = source.toSeconds() + dest.toSeconds();
 		dest = secondsToDate(sec);
 	}
-	static void add(short Year, short Month, short Day)
+	/*void add(short Year, short Month, short Day)
 	{
+		int days = Date::toDays(Year, Month, Day);
+		while (days >= 365)
+		{
+			if (year % 4 == 3 && days >= 366)
+			{
+				days -= 366;
+			}
+			else
+			{
+				days -= 365;
+			}
+			year += 1;
+		}
+		while (days >= days_in_month[month - 1])
+		{
+			if (year % 4 == 0 && month == 2 && days >= 29)
+			{
+				days -= 29;
+			}
+			else
+			{
+				days -= days_in_month[month - 1];
+			}
+			month++;
+			if (month > 12)
+			{
+				month = 1;
+				year++;
+			}
+		}
+		if (days > days_in_month[month - 1] - day)
+		{
+			if (year % 4 == 0 && month == 2)
+			{
+				if (days > 29 - day)
+				{
 
+				}
+			}
+		}
+	}*/
+	void addDate(short Year, short Month, short Day)
+	{
+		if (day + Day > days_in_month[month - 1])
+		{
+			if (Year % 4 == 0 && month == 2 && (day + Day == 29))
+			{
+				day += Day;
+			}
+			else
+			{
+				day += Day - days_in_month[month - 1];
+				Month++;
+			}
+		}
+		else
+		{
+			day += Day;
+		}
+		
+		if (month + Month > 12)
+		{
+			month = (month + Month) % 12;
+			Year++;
+		}
+		else
+		{
+			month += Month;
+		}
+
+		year += Year;
 	}
 	static int toDays(short Year, short Month, short Day)
 	{
