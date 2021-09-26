@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <iomanip>
+#include <cmath>
+#include <string>
 class Date
 {
 public:
@@ -17,8 +19,13 @@ public:
 	void print()
 	{
 		using namespace std;
-		cout << year << " " << setfill('0') << setw(2) << month << " " << setfill('0') << setw(2) << day << " "
-			<< setfill('0') << setw(2) << hour << ":" << setfill('0') << setw(2) << minute << ":" << setfill('0') << setw(2) << second;
+		std::string days_of_week[7] = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+		int day_of_week = getDayByDate();
+		cout << days_of_week[day_of_week] << ", ";
+		/*cout << year << " " << setfill('0') << setw(2) << month << " " << setfill('0') << setw(2) << day << " "
+			<< setfill('0') << setw(2) << hour << ":" << setfill('0') << setw(2) << minute << ":" << setfill('0') << setw(2) << second;*/
+		cout << setfill('0') << setw(2) << day << " " << setfill('0') << setw(2) << month << " " << year << " "
+				<< setfill('0') << setw(2) << hour << ":" << setfill('0') << setw(2) << minute << ":" << setfill('0') << setw(2) << second;
 	}
 	bool isCorrect()
 	{
@@ -33,26 +40,17 @@ public:
 	int getDayByDate()
 	{
 		int corrected_month;
-		int corrected_year;
-		if (month >= 3 && month <= 12)
+		int corrected_year = year;
+		if (month < 3)
 		{
-			corrected_month = month - 2;
-			corrected_year = year % 100;
+			corrected_year = year - 1;
+			corrected_month = 10 + month;
 		}
 		else
 		{
-			corrected_month = month + 10;
-			corrected_year = year % 100 - 1;
-			if (corrected_year < 0)
-				corrected_year = 99;
+			corrected_month = month - 2;
 		}
-
-		double d1 = 2.6 * corrected_month - 0.2;
-		double d1_floor;
-		int century = year / 100;
-		std::modf(d1, &d1_floor);
-		int result = day + ((13 * corrected_month - 1) / 5) + corrected_year + corrected_year / 4 + century / 4 - 2 * century;
-		return (result - 1) % 7;
+		return (day + 31 * corrected_month / 12 + corrected_year + corrected_year / 4 - corrected_year / 100 + corrected_year / 400 - 1) % 7;
 	}
 	static Date secondsToDate(unsigned sec)
 	{
