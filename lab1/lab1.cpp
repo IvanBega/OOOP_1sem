@@ -11,7 +11,8 @@
 
 int main()
 {
-    Date d1(2020, 3, 1,0,0,0);
-    d1.subtractDate(0, 0, 3);
-    d1.print();
+    Date d1(2005, 9, 6,0,0,0);
+    Date d2(2015, 9, 6,0,0,0);
+    Date temp = Date::dateDiff(d2, d1);
+    temp.print();
 }

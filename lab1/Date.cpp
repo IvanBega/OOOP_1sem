@@ -110,7 +110,8 @@ public:
 	}
 	static Date dateDiff(Date date1, Date date2)
 	{
-		return Date::secondsToDate(date2.toSeconds() - date1.toSeconds());
+		date1.subtractDate(date2.year, date2.month, date2.day);
+		return date1;
 	}
 	/*void add(short Year, short Month, short Day)
 	{
@@ -217,6 +218,7 @@ public:
 		if (month - Month <= 0)
 		{
 			month = 12 - (Month - month);
+			Year += 1;
 		}
 		else
 		{
