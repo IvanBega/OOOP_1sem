@@ -117,21 +117,21 @@ public:
 		int sec = source.toSeconds() + dest.toSeconds();
 		dest = secondsToDate(sec);
 	}
-	static void add(Date date)
+	static void add(short Year, short Month, short Day)
 	{
 
 	}
-	int toDays()
+	static int toDays(short Year, short Month, short Day)
 	{
 		int days = 0;
-		days += year * 365 + day; // years + days
-		days += year / 4; // leap days
+		days += Year * 365 + Day; // years + days
+		days += Year / 4; // leap days
 
-		for (int i = 0; i < month - 1; i++)
+		for (int i = 0; i < Month - 1; i++)
 		{
 			days += days_in_month[i];
 		}
-		if (year % 4 == 3 && ((month == 2 && day == 29) || month >= 3))
+		if (Year % 4 == 3 && ((Month == 2 && Day == 29) || Month >= 3))
 		{
 			days += 1;
 		}

@@ -11,6 +11,6 @@
 
 int main()
 {
-    Date d1(1, 1, 8,0,0,0);
-    std::cout << d1.dateToDays();
+    Date d1(3, 3, 8,0,0,0);
+    std::cout << Date::toDays(3, 3, 8);
 }
