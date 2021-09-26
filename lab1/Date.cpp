@@ -133,6 +133,10 @@ public:
 			}
 		}
 	}*/
+	void addDate(Date date)
+	{
+		addDate(date.year, date.month, date.day);
+	}
 	void addDate(short Year, short Month, short Day)
 	{
 		if (day + Day > days_in_month[month - 1])
