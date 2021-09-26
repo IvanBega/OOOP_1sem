@@ -56,6 +56,9 @@ public:
 	}
 	unsigned toSeconds()
 	{
+		if (year < 2001)
+			year += 2001;
+
 		int sec = 0;
 		sec += (year - 2001) * sec_in_year; // years to seconds
 		sec += (year - 2001) / 4 * sec_in_day; // leap days to seconds
@@ -105,6 +108,35 @@ public:
 		temp.second = sec;
 		return temp;
 	}
+	static Date dateDiff(Date date1, Date date2)
+	{
+		return Date::secondsToDate(date2.toSeconds() - date1.toSeconds());
+	}
+	static void addDate(Date source, Date& dest)
+	{
+		int sec = source.toSeconds() + dest.toSeconds();
+		dest = secondsToDate(sec);
+	}
+	static void add(Date date)
+	{
+
+	}
+	int toDays()
+	{
+		int days = 0;
+		days += year * 365 + day; // years + days
+		days += year / 4; // leap days
+
+		for (int i = 0; i < month - 1; i++)
+		{
+			days += days_in_month[i];
+		}
+		if (year % 4 == 3 && ((month == 2 && day == 29) || month >= 3))
+		{
+			days += 1;
+		}
+		return days;
+	}
 private:
 	static constexpr const unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	static const int sec_in_year = 31536000;
@@ -115,7 +147,7 @@ private:
 	short hour = 0;
 	short minute = 0;
 	short second = 0;
-	static Date dateFromDays(int days)
+	/*static Date dateFromDays(int days)
 	{
 		unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31,  30, 31 };
 		Date temp(0, 0, 0, 0, 0, 0);
@@ -133,7 +165,7 @@ private:
 		}
 		temp.day = days;
 		return temp;
-	}
+	}*/
 };
 
 

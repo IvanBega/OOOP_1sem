@@ -11,8 +11,6 @@
 
 int main()
 {
-    Date d1(2021, 1, 31, 0, 0, 0);
-    Date d2(2026, 1, 31, 0, 0, 0);
-    Date temp = Date::secondsToDate(d2.toSeconds() - d1.toSeconds());
-    temp.print();
+    Date d1(1, 1, 8,0,0,0);
+    std::cout << d1.dateToDays();
 }
