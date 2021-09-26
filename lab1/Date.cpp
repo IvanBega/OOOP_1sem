@@ -54,27 +54,6 @@ public:
 		int result = day + ((13 * corrected_month - 1) / 5) + corrected_year + corrected_year / 4 + century / 4 - 2 * century;
 		return (result - 1) % 7;
 	}
-	unsigned toSeconds()
-	{
-		if (year < 2001)
-			year += 2001;
-
-		int sec = 0;
-		sec += (year - 2001) * sec_in_year; // years to seconds
-		sec += (year - 2001) / 4 * sec_in_day; // leap days to seconds
-		for (int i = 0; i < month - 1; i++)
-		{
-			sec += days_in_month[i] * sec_in_day; // month to sec
-		}
-		sec += day * sec_in_day;
-		sec += hour * 3600 + minute * 60 + second;
-
-		if (year % 4 == 0 && month < 3)
-		{
-			sec -= sec_in_day;
-		}
-		return sec;
-	}
 	static Date secondsToDate(unsigned sec)
 	{
 		Date temp(0,0, 0,0,0,0);
