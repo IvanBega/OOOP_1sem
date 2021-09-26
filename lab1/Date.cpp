@@ -112,11 +112,6 @@ public:
 	{
 		return Date::secondsToDate(date2.toSeconds() - date1.toSeconds());
 	}
-	static void addDate(Date source, Date& dest)
-	{
-		int sec = source.toSeconds() + dest.toSeconds();
-		dest = secondsToDate(sec);
-	}
 	/*void add(short Year, short Month, short Day)
 	{
 		int days = Date::toDays(Year, Month, Day);
@@ -164,7 +159,7 @@ public:
 	{
 		if (day + Day > days_in_month[month - 1])
 		{
-			if (Year % 4 == 0 && month == 2 && (day + Day == 29))
+			if (year % 4 == 0 && month == 2 && (day + Day == 29))
 			{
 				day += Day;
 			}
@@ -190,6 +185,45 @@ public:
 		}
 
 		year += Year;
+	}
+	void subtractDate(short Year, short Month, short Day)
+	{
+		if (day - Day <= 0)
+		{
+			if (year % 4 == 0 && month == 3)
+			{
+				day = 29 - (Day - day);
+				month -= 1;
+			}
+			else
+			{
+				if (month == 1)
+				{
+					month = 12;
+					Year += 1;
+				}
+				else
+				{
+					month -= 1;
+				}
+				day = days_in_month[month - 1] - (Day - day);
+			}
+		}
+		else
+		{
+			day -= Day;
+		}
+
+		if (month - Month <= 0)
+		{
+			month = 12 - (Month - month);
+		}
+		else
+		{
+			month -= Month;
+		}
+
+		year -= Year;
 	}
 	static int toDays(short Year, short Month, short Day)
 	{

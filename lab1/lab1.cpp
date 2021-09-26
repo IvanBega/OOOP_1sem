@@ -11,7 +11,7 @@
 
 int main()
 {
-    Date d1(2020, 2, 1,0,0,0);
-    d1.addDate(8, 5, 30);
+    Date d1(2020, 3, 1,0,0,0);
+    d1.subtractDate(0, 0, 3);
     d1.print();
 }
