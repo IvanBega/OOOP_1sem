@@ -215,7 +215,28 @@ public:
 	}
 	bool operator >(const Date& date) const
 	{
-		return this->year > date.year;
+		/*if (this->year > date.year)
+			return true;
+		if (this->year < date.year)
+			return false;
+
+		if (this->month > date.month)
+			return true;
+		if (this->month < date.month)
+			return false;
+
+		if (this->day > date.day)
+			return true;
+		if (this->day < date.day)
+			return false;*/
+		int this_day = Date::toDays(this->year, this->month, this->day);
+		int date_day = Date::toDays(date.year, date.month, date.day);
+		if (this_day > date_day)
+			return true;
+
+		int this_sec = this->hour * 3600 + this->minute * 60 + this->second;
+		int date_sec = date.hour * 3600 + date.minute * 60 + date.second;
+		return this_sec > date_sec;
 	}
 private:
 	static constexpr const unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
