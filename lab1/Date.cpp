@@ -3,6 +3,8 @@
 #include <iomanip>
 #include <cmath>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 class Date
 {
 public:
@@ -86,6 +88,8 @@ public:
 	}
 	static int dateDiff(Date date1, Date date2)
 	{
+		if (date2 > date1)
+			std::swap(date1, date2);
 		return Date::toDays(date1.year, date1.month, date1.day) - Date::toDays(date2.year, date2.month, date2.day);
 	}
 	void addDate(Date date)
@@ -237,6 +241,16 @@ public:
 		int this_sec = this->hour * 3600 + this->minute * 60 + this->second;
 		int date_sec = date.hour * 3600 + date.minute * 60 + date.second;
 		return this_sec > date_sec;
+	}
+	void fillWithRandom()
+	{
+		std::srand(std::rand());
+		year = std::rand() % 22 + 2000;
+		month = std::rand() % 12 + 1;
+		day = std::rand() % days_in_month[month - 1] + 1;
+		hour = std::rand() % 24;
+		minute = std::rand() % 60;
+		second = std::rand() % 60;
 	}
 private:
 	static constexpr const unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };

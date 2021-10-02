@@ -11,8 +11,11 @@
 
 int main()
 {
-    Date d1(2022, 3, 3, 14, 50, 52);
-    Date d2(2022, 3, 3, 14, 50, 51);
-    bool b = d1 > d2;
-    std::cout << b;
+	Date d1;
+	for (int i = 0; i < 100; i++)
+	{
+		d1.fillWithRandom();
+		d1.print();
+		std::cout << std::endl;
+	}
 }
