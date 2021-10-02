@@ -12,5 +12,18 @@
 
 int main()
 {
-	UserInterface::BinaryHeapQueueDemonstration(10);
+	using namespace std;
+	cout << "Demonstrating LinkedListQueue: \n";
+	UserInterface::Test<LinkedListQueue<Date>>(10);
+	cout << "\n";
+	cout << "Demonstrating VectorQueue: \n";
+	UserInterface::Test<VectorQueue<Date>>(10);
+	cout << "\n";
+	cout << "Demonstrating BinaryHeapQueue: \n";
+	UserInterface::Test<BinaryHeapQueue<Date>>(10);
+	cout << "\n";
+	cout << "Demonstrating BSTQueue: \n";
+	UserInterface::Test<BSTQueue<Date>>(10);
+	cout << "\n";
+	
 }
