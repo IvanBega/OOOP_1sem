@@ -51,8 +51,8 @@ public:
 			dateToAdd.subtractYear(2000);
 
 			cout << "Adding ";
-			dateToAdd.print2();
-			cout << " to the "; date.print2(); cout << endl;
+			dateToAdd.print3();
+			cout << " to the "; date.print3(); cout << endl;
 			date.addDate(dateToAdd);
 			cout << "Result: "; date.print(); cout << endl;
 			date.fillWithRandom();
@@ -68,8 +68,8 @@ public:
 			dateToSubtract.subtractYear(2000);
 
 			cout << "Subtracting ";
-			dateToSubtract.print2();
-			cout << " from "; date.print2(); cout << endl;
+			dateToSubtract.print3();
+			cout << " from "; date.print3(); cout << endl;
 			date.subtractDate(dateToSubtract);
 			cout << "Result: "; date.print(); cout << endl;
 			date.fillWithRandom();

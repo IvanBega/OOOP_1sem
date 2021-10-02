@@ -33,6 +33,12 @@ public:
 		cout << year << " years, " << month << " month, " << day << " days, " <<
 			hour << " hours, " << minute << " minutes, " << second << " seconds";
 	}
+	void print3()
+	{
+		using namespace std;
+		cout << year << " " << setfill('0') << setw(2) << month << " " << setfill('0') << setw(2) << day << " " << setfill('0') << setw(2) <<
+			hour << ":" << setfill('0') << setw(2)  << minute << ":" << setfill('0') << setw(2)  << second;
+	}
 	bool isCorrect()
 	{
 		if ((year >= 0) && (month == 2) && (year % 4 == 0) && (day <= 29))
