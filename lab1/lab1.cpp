@@ -28,5 +28,8 @@ int main()
 	cout << "Demonstrating Date addition: \n";
 	UserInterface::AddDateDemonstration(10);
 	cout << "\n";
+	cout << "Demonstrating Date subtraction: \n";
+	UserInterface::SubtractDateDemonstration(10);
+	cout << "\n";
 	
 }

@@ -1,8 +1,6 @@
-﻿  BinaryHeapQueue.cpp
-  Date.cpp
+﻿  Date.cpp
 D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(65,1): warning C4244: '+=': conversion from 'double' to 'short', possible loss of data
 D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(68,14): warning C4018: '>=': signed/unsigned mismatch
-  LinkedListQueue.cpp
   UserInterface.cpp
 D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(65,1): warning C4244: '+=': conversion from 'double' to 'short', possible loss of data
 D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(68,14): warning C4018: '>=': signed/unsigned mismatch

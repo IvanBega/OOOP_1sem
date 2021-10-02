@@ -30,8 +30,8 @@ public:
 	void print2()
 	{
 		using namespace std;
-		cout << year << " years, " << month << " month, " << day << "days, " <<
-			hour << " hours, " << minute << " minutes, " << second << "seconds";
+		cout << year << " years, " << month << " month, " << day << " days, " <<
+			hour << " hours, " << minute << " minutes, " << second << " seconds";
 	}
 	bool isCorrect()
 	{

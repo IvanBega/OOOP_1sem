@@ -52,11 +52,28 @@ public:
 
 			cout << "Adding ";
 			dateToAdd.print2();
-			cout << " to the "; date.print(); cout << endl;
+			cout << " to the "; date.print2(); cout << endl;
 			date.addDate(dateToAdd);
 			cout << "Result: "; date.print(); cout << endl;
 			date.fillWithRandom();
 			dateToAdd.fillWithRandom();
+		}
+	}
+	static void SubtractDateDemonstration(int count)
+	{
+		using namespace std;
+		Date date, dateToSubtract;
+		for (int i = 0; i < count; i++)
+		{
+			dateToSubtract.subtractYear(2000);
+
+			cout << "Subtracting ";
+			dateToSubtract.print2();
+			cout << " from "; date.print2(); cout << endl;
+			date.subtractDate(dateToSubtract);
+			cout << "Result: "; date.print(); cout << endl;
+			date.fillWithRandom();
+			dateToSubtract.fillWithRandom();
 		}
 	}
 };
