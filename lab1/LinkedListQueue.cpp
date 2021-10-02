@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Queue.cpp"
 template<class T>
-class LinkedListQueue : Queue<T>
+class LinkedListQueue : public Queue<T>
 {
 public:
 	void push(T data, int priority)

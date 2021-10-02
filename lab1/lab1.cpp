@@ -12,5 +12,5 @@
 
 int main()
 {
-	UserInterface::LinkedListQueueDemonstration(10);
+	UserInterface::BinaryHeapQueueDemonstration(10);
 }

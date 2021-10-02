@@ -24,8 +24,8 @@ public:
 	}
 	T pop()
 	{
-		if (arr.empty())
-			return NULL;
+		//if (arr.empty())
+		//	return NULL;
 		elem temp = arr.back();
 		arr.pop_back();
 		return temp.data;
