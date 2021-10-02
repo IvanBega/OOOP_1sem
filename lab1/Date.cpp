@@ -231,7 +231,7 @@ public:
 	}
 	bool operator >(const Date& date) const
 	{
-		/*if (this->year > date.year)
+		if (this->year > date.year)
 			return true;
 		if (this->year < date.year)
 			return false;
@@ -244,11 +244,7 @@ public:
 		if (this->day > date.day)
 			return true;
 		if (this->day < date.day)
-			return false;*/
-		int this_day = Date::toDays(this->year, this->month, this->day);
-		int date_day = Date::toDays(date.year, date.month, date.day);
-		if (this_day > date_day)
-			return true;
+			return false;
 
 		int this_sec = this->hour * 3600 + this->minute * 60 + this->second;
 		int date_sec = date.hour * 3600 + date.minute * 60 + date.second;

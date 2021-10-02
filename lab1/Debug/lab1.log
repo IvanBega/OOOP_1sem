@@ -1,4 +1,7 @@
-﻿  UserInterface.cpp
+﻿  Date.cpp
+D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(71,1): warning C4244: '+=': conversion from 'double' to 'short', possible loss of data
+D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(74,14): warning C4018: '>=': signed/unsigned mismatch
+  UserInterface.cpp
 D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(71,1): warning C4244: '+=': conversion from 'double' to 'short', possible loss of data
 D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(74,14): warning C4018: '>=': signed/unsigned mismatch
 D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\UserInterface.cpp(83,7): warning C4101: 'days': unreferenced local variable
