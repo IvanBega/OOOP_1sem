@@ -19,7 +19,7 @@ public:
 		}
 		if (priority < head->priority)
 		{
-			std::cout << "head priority is " << head->priority << ", inserting priority is " << priority << std::endl;
+			//std::cout << "head priority is " << head->priority << ", inserting priority is " << priority << std::endl;
 			temp->next = head;
 			head = temp;
 		}

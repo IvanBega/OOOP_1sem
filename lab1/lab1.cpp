@@ -7,13 +7,10 @@
 #include "Date.cpp"
 #include "VectorQueue.cpp"
 #include "BSTQueue.cpp"
+#include "UserInterface.cpp"
 
 
 int main()
 {
-	Date d1[10];
-	LinkedListQueue<Date> q;
-	for (int i = 0; i < 10; i++)
-	{
-	}
+	UserInterface::LinkedListQueueDemonstration(10);
 }

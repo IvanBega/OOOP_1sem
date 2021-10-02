@@ -1,4 +1,9 @@
-﻿  lab1.cpp
+﻿  LinkedListQueue.cpp
+  UserInterface.cpp
 D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(59,1): warning C4244: '+=': conversion from 'double' to 'short', possible loss of data
 D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(62,14): warning C4018: '>=': signed/unsigned mismatch
+  lab1.cpp
+D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(59,1): warning C4244: '+=': conversion from 'double' to 'short', possible loss of data
+D:\Программирование\C++\2 курс\1 семестр\lab1\lab1\Date.cpp(62,14): warning C4018: '>=': signed/unsigned mismatch
+  Generating Code...
   lab1.vcxproj -> D:\Программирование\C++\2 курс\1 семестр\lab1\Debug\lab1.exe

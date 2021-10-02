@@ -145,6 +145,7 @@
     <ClCompile Include="lab1.cpp" />
     <ClCompile Include="LinkedListQueue.cpp" />
     <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="VectorQueue.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
