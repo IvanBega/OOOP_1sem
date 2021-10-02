@@ -16,7 +16,7 @@ public:
 	}
 	Date()
 	{
-
+		fillWithRandom();
 	}
 	void print()
 	{

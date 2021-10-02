@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <vector>
 #include <iostream>
 #include "Queue.cpp"
@@ -7,13 +7,7 @@
 #include "Date.cpp"
 #include "VectorQueue.cpp"
 #include "BSTQueue.cpp"
-
-
-int main()
+class UserInterface
 {
-	Date d1[10];
-	LinkedListQueue<Date> q;
-	for (int i = 0; i < 10; i++)
-	{
-	}
-}
+
+};
