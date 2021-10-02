@@ -31,5 +31,8 @@ int main()
 	cout << "Demonstrating Date subtraction: \n";
 	UserInterface::SubtractDateDemonstration(10);
 	cout << "\n";
+	cout << "Demonstration Date distance: \n";
+	UserInterface::DateDiffDemonstration(10);
+	cout << "\n";
 	
 }

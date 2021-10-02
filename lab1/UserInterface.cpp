@@ -76,4 +76,22 @@ public:
 			dateToSubtract.fillWithRandom();
 		}
 	}
+	static void DateDiffDemonstration(int count)
+	{
+		using namespace std;
+		Date date1, date2;
+		int days;
+		for (int i = 0; i < count; i++)
+		{
+			date1.print();
+			cout << "\n";
+			date2.print();
+			cout << "\n";
+			int days = Date::dateDiff(date1, date2);
+			cout << "Distance between two dates is " << days << " days\n"
+				<< "------------------------------------------------\n";
+			date1.fillWithRandom();
+			date2.fillWithRandom();
+		}
+	}
 };
