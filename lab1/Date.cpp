@@ -22,8 +22,6 @@ public:
 		std::string days_of_week[7] = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 		int day_of_week = getDayByDate();
 		cout << days_of_week[day_of_week] << ", ";
-		/*cout << year << " " << setfill('0') << setw(2) << month << " " << setfill('0') << setw(2) << day << " "
-			<< setfill('0') << setw(2) << hour << ":" << setfill('0') << setw(2) << minute << ":" << setfill('0') << setw(2) << second;*/
 		cout << year << " " << setfill('0') << setw(2) << month << " " << setfill('0') << setw(2) << day << " "
 				<< setfill('0') << setw(2) << hour << ":" << setfill('0') << setw(2) << minute << ":" << setfill('0') << setw(2) << second;
 	}
@@ -86,15 +84,9 @@ public:
 		temp.second = sec;
 		return temp;
 	}
-	static Date dateDiff(Date date1, Date date2)
+	static int dateDiff(Date date1, Date date2)
 	{
-		date1.subtractDate(date2.year, date2.month, date2.day,  date2.hour, date2.minute, date2.second);
-		if (date1.month == 12)
-		{
-			date1.month = 0;
-			date1.year += 1;
-		}
-		return date1;
+		return Date::toDays(date1.year, date1.month, date1.day) - Date::toDays(date2.year, date2.month, date2.day);
 	}
 	void addDate(Date date)
 	{
@@ -220,6 +212,10 @@ public:
 			days += 1;
 		}
 		return days;
+	}
+	bool operator >(const Date& date) const
+	{
+		return this->year > date.year;
 	}
 private:
 	static constexpr const unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
