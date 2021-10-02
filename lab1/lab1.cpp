@@ -25,5 +25,8 @@ int main()
 	cout << "Demonstrating BSTQueue: \n";
 	UserInterface::Test<BSTQueue<Date>>(10);
 	cout << "\n";
+	cout << "Demonstrating Date addition: \n";
+	UserInterface::AddDateDemonstration(10);
+	cout << "\n";
 	
 }
