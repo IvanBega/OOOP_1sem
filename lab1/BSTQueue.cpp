@@ -88,6 +88,10 @@ private:
 		{
 			prev->lt = current->rt;
 		}
+		else
+		{
+			prev->lt = NULL;
+		}
 		T data = current->data;
 		delete current;
 		return data;

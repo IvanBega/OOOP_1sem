@@ -24,7 +24,7 @@ public:
 		cout << days_of_week[day_of_week] << ", ";
 		/*cout << year << " " << setfill('0') << setw(2) << month << " " << setfill('0') << setw(2) << day << " "
 			<< setfill('0') << setw(2) << hour << ":" << setfill('0') << setw(2) << minute << ":" << setfill('0') << setw(2) << second;*/
-		cout << setfill('0') << setw(2) << day << " " << setfill('0') << setw(2) << month << " " << year << " "
+		cout << year << " " << setfill('0') << setw(2) << month << " " << setfill('0') << setw(2) << day << " "
 				<< setfill('0') << setw(2) << hour << ":" << setfill('0') << setw(2) << minute << ":" << setfill('0') << setw(2) << second;
 	}
 	bool isCorrect()
@@ -88,7 +88,12 @@ public:
 	}
 	static Date dateDiff(Date date1, Date date2)
 	{
-		date1.subtractDate(date2.year, date2.month, date2.day);
+		date1.subtractDate(date2.year, date2.month, date2.day,  date2.hour, date2.minute, date2.second);
+		if (date1.month == 12)
+		{
+			date1.month = 0;
+			date1.year += 1;
+		}
 		return date1;
 	}
 	void addDate(Date date)
@@ -196,6 +201,10 @@ public:
 		time = time - 60 * minute;
 		second = time;
 	}
+	void subtractDate(Date date)
+	{
+		subtractDate(date.year, date.month, date.day, date.hour, date.minute, date.second);
+	}
 	static int toDays(short Year, short Month, short Day)
 	{
 		int days = 0;
@@ -215,6 +224,7 @@ public:
 private:
 	static constexpr const unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	static const int sec_in_day = 86400;
+	static const int sec_in_year = 31536000;
 	short year = 0;
 	short day = 1;
 	short month = 1;

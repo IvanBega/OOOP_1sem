@@ -11,7 +11,15 @@
 
 int main()
 {
-    Date d1(2021, 2, 28, 14, 0, 0);
-    d1.subtractDate(0, 0, 0, 15, 0, 0);
-    d1.print();
+    /*Date d1(2021, 3, 1, 14, 0, 0);
+    Date d2(2021, 2, 28, 14, 0, 0);
+    Date temp = Date::dateDiff(d1, d2);
+    temp.print();*/
+    BSTQueue<int> q;
+    q.push(7, 7);
+    q.push(9, 9);
+    q.push(8, 8);
+    std::cout << q.pop() << std::endl;
+    std::cout << q.pop() << std::endl;
+    std::cout << q.pop() << std::endl;
 }
