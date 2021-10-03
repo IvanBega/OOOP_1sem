@@ -235,7 +235,7 @@ public:
 			cin >> Year >> Month >> Day;
 			cout << "Enter Hours, Minutes, and Seconds: \n";
 			cin >> Hour >> Minute >> Second;
-			year = Year; Month = month; Day = day; Hour = hour; Minute = minute; Second = second;
+			year = Year; month = Month; day = Day; hour = Hour; minute = Minute; second = Second;
 			if (!isCorrect())
 			{
 				cout << "Date is incorrect! Try again...\n";

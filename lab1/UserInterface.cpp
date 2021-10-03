@@ -31,7 +31,7 @@ public:
 		{
 			// pushing
 			Date temp;
-			temp.fillWithRandom()
+			temp.fillWithRandom();
 			std::srand(std::rand());
 			int priority = rand() % 1000;
 			q.push(temp, priority);
