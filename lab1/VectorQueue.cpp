@@ -33,7 +33,6 @@ public:
 	T lookup_elem()
 	{
 		elem last = arr.back();
-		arr.pop_back();
 		return last.data;
 	}
 
