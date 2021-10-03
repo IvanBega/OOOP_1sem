@@ -34,5 +34,6 @@ int main()
 	cout << "Demonstration Date distance: \n";
 	UserInterface::DateDiffDemonstration(10);
 	cout << "\n";
+	UserInterface::ConsoleInterface();
 	
 }

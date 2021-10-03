@@ -24,6 +24,7 @@ public:
 		std::cout << "Pushing " << count << " elements:\n";
 		for (int i = 0; i < count; i++)
 		{
+			// pushing
 			Date temp;
 			std::srand(std::rand());
 			int priority = rand() % 1000;
@@ -92,6 +93,28 @@ public:
 				<< "------------------------------------------------\n";
 			date1.fillWithRandom();
 			date2.fillWithRandom();
+		}
+	}
+	static void ConsoleInterface()
+	{
+		using namespace std;
+		int option;
+		cout << "Choose data structure:\n1 - LinkedListQueue\n2 - VectorQueue\n3 - BSTQueue\n4 - BinaryHeapQueue\n";
+		cin >> option;
+		switch (option)
+		{
+		case 1:
+			cout << "Using LinkedListQueue\n";
+			break;
+		case 2:
+			cout << "Using VectorQueue\n";
+			break;
+		case 3:
+			cout << "Using BSTQueue\n";
+			break;
+		case 4:
+			cout << "Using BinaryHeapQueue\n";
+			break;
 		}
 	}
 };
