@@ -99,15 +99,18 @@ public:
 	{
 		using namespace std;
 		int option;
+		Queue<int>* q = NULL;
 		cout << "Choose data structure:\n1 - LinkedListQueue\n2 - VectorQueue\n3 - BSTQueue\n4 - BinaryHeapQueue\n";
 		cin >> option;
 		switch (option)
 		{
 		case 1:
 			cout << "Using LinkedListQueue\n";
+			q = new LinkedListQueue<int>;
 			break;
 		case 2:
 			cout << "Using VectorQueue\n";
+			q = new VectorQueue<int>;
 			break;
 		case 3:
 			cout << "Using BSTQueue\n";
@@ -115,6 +118,30 @@ public:
 		case 4:
 			cout << "Using BinaryHeapQueue\n";
 			break;
+		}
+		cout << "\nChoose operation:\n1 - Lookup top element\n2 - Insert\n3 - Pop\n4 - Exit\n";
+		cin >> option;
+		int priority, data;
+		while (option != 4)
+		{
+			switch (option)
+			{
+			case 1:
+				cout << "Top element is " << q->lookup_elem() << "\n";
+				break;
+			case 2:
+				cout << "Enter data: ";
+				cin >> data;
+				cout << "Enter priority: ";
+				cin >> priority;
+				q->push(data, priority);
+				break;
+			case 3:
+				cout << "Popped element " << q->pop() << "\n";
+				break;
+			}
+			cout << "Choose next operation: ";
+			cin >> option;
 		}
 	}
 };

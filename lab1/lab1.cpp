@@ -13,7 +13,7 @@
 int main()
 {
 	using namespace std;
-	cout << "Demonstrating LinkedListQueue: \n";
+	/*cout << "Demonstrating LinkedListQueue: \n";
 	UserInterface::Test<LinkedListQueue<Date>>(10);
 	cout << "\n";
 	cout << "Demonstrating VectorQueue: \n";
@@ -33,7 +33,7 @@ int main()
 	cout << "\n";
 	cout << "Demonstration Date distance: \n";
 	UserInterface::DateDiffDemonstration(10);
-	cout << "\n";
+	cout << "\n";*/
 	UserInterface::ConsoleInterface();
 	
 }

@@ -3,7 +3,7 @@
 #include <vector>
 
 template <class T>
-class VectorQueue : Queue<T>
+class VectorQueue : public Queue<T>
 {
 public:
 	void push(T data, int priority)
