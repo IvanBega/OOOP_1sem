@@ -21,7 +21,6 @@ public:
 	void print()
 	{
 		using namespace std;
-		std::string days_of_week[7] = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 		int day_of_week = getDayByDate();
 		cout << days_of_week[day_of_week] << ", ";
 		cout << year << " " << setfill('0') << setw(2) << month << " " << setfill('0') << setw(2) << day << " "
@@ -232,6 +231,7 @@ public:
 		year -= Year;
 	}
 private:
+	static constexpr const char* days_of_week[7] = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 	static constexpr const short days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	static const int sec_in_day = 86400;
 	short year = 0;
