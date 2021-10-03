@@ -20,7 +20,7 @@ public:
 		auto start = std::chrono::high_resolution_clock::now();
 		UserInterface::QueueDemonstration(q, count);
 		auto stop = std::chrono::high_resolution_clock::now();
-		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 		std::cout << "\nTook " << duration.count() << " milliseconds";
 	}
 	template<typename T>

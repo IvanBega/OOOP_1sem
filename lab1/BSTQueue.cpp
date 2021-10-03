@@ -30,15 +30,6 @@ public:
 		}
 		return delete_tree(head);
 	}
-	void display()
-	{
-		Tree* current = head;
-		while (current)
-		{
-			std::cout << current->priority << std::endl;
-			current = current->rt;
-		}
-	}
 private:
 	struct Tree
 	{
