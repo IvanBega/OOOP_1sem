@@ -65,39 +65,6 @@ public:
 		}
 		return (day + 31 * corrected_month / 12 + corrected_year + corrected_year / 4 - corrected_year / 100 + corrected_year / 400 - 1) % 7;
 	}
-	static Date secondsToDate(unsigned sec)
-	{
-		Date temp(0,0, 0,0,0,0);
-		temp.year += (sec / (sec_in_year + 0.25 * sec_in_day));
-		sec -= temp.year * sec_in_year + sec_in_day * (temp.year) / 4;
-		int i = 0;
-		while (sec >= days_in_month[i] * sec_in_day)
-		{
-			if (i == 1 && temp.year % 4 == 0)
-			{
-				if (sec >= 29 * sec_in_day)
-				{
-					sec -= 29 * sec_in_day;
-				}
-				else
-					break;
-			}
-			else
-			{
-				sec -= days_in_month[i] * sec_in_day;
-			}
-			temp.month++;
-			i++;
-		}
-		temp.day += (sec / sec_in_day);
-		sec -= (temp.day) * sec_in_day;
-		temp.hour = sec / 3600;
-		sec -= temp.hour * 3600;
-		temp.minute = sec / 60;
-		sec -= temp.minute * 60;
-		temp.second = sec;
-		return temp;
-	}
 	static int dateDiff(Date date1, Date date2)
 	{
 		if (date2 > date1)
@@ -265,9 +232,8 @@ public:
 		year -= Year;
 	}
 private:
-	static constexpr const unsigned short int days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	static constexpr const short days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 	static const int sec_in_day = 86400;
-	static const int sec_in_year = 31536000;
 	short year = 0;
 	short day = 1;
 	short month = 1;
