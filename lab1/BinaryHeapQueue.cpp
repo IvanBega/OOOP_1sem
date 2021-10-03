@@ -3,7 +3,7 @@
 #include <vector>
 
 template<class T>
-class BinaryHeapQueue : Queue<T>
+class BinaryHeapQueue : public Queue<T>
 {
 public:
 

@@ -9,6 +9,7 @@
 #include "BSTQueue.cpp"
 #include <cstdlib>
 #include <ctime>
+#include <chrono>
 class UserInterface
 {
 public:
@@ -16,7 +17,11 @@ public:
 	static void Test(int count)
 	{
 		T q;
+		auto start = std::chrono::high_resolution_clock::now();
 		UserInterface::QueueDemonstration(q, count);
+		auto stop = std::chrono::high_resolution_clock::now();
+		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		std::cout << "\nTook " << duration.count() << " milliseconds";
 	}
 	template<typename T>
 	static void QueueDemonstration(T q, int count)
@@ -102,6 +107,8 @@ public:
 		Queue<int>* q = NULL;
 		cout << "Choose data structure:\n1 - LinkedListQueue\n2 - VectorQueue\n3 - BSTQueue\n4 - BinaryHeapQueue\n";
 		cin >> option;
+
+		// choosing data structure
 		switch (option)
 		{
 		case 1:
@@ -114,11 +121,15 @@ public:
 			break;
 		case 3:
 			cout << "Using BSTQueue\n";
+			q = new BSTQueue<int>;
 			break;
 		case 4:
+			q = new BinaryHeapQueue<int>;
 			cout << "Using BinaryHeapQueue\n";
 			break;
 		}
+
+		// choosing operations  on data structure
 		cout << "\nChoose operation:\n1 - Lookup top element\n2 - Insert\n3 - Pop\n4 - Exit\n";
 		cin >> option;
 		int priority, data;

@@ -2,7 +2,7 @@
 #include "Queue.cpp"
 #include <iostream>
 template<class T>
-class BSTQueue : Queue<T>
+class BSTQueue : public Queue<T>
 {
 public:
 	void push(T data, int priority)
@@ -16,7 +16,7 @@ public:
 	}
 	T lookup_elem()
 	{
-		return minTree(head)->data;
+		return minTree()->data;
 	}
 	T pop()
 	{
@@ -68,8 +68,9 @@ private:
 		}
 		return current;
 	}
-	Tree* minTree(Tree* current)
+	Tree* minTree()
 	{
+		Tree* current = head;
 		while (current->lt)
 		{
 			current = current->lt;
