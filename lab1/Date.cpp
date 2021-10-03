@@ -16,7 +16,6 @@ public:
 	}
 	Date()
 	{
-		fillWithRandom();
 	}
 	void print()
 	{
@@ -225,6 +224,29 @@ public:
 		hour = std::rand() % 24;
 		minute = std::rand() % 60;
 		second = std::rand() % 60;
+	}
+	void fillFromConsole()
+	{
+		using namespace std;
+		short Year, Month, Day, Hour, Minute, Second;
+		while (true)
+		{
+			cout << "Enter Year, Month and Day: \n";
+			cin >> Year >> Month >> Day;
+			cout << "Enter Hours, Minutes, and Seconds: \n";
+			cin >> Hour >> Minute >> Second;
+			year = Year; Month = month; Day = day; Hour = hour; Minute = minute; Second = second;
+			if (!isCorrect())
+			{
+				cout << "Date is incorrect! Try again...\n";
+			}
+			else
+			{
+				cout << "You entered ";
+				print();
+				break;
+			}
+		}
 	}
 	void subtractYear(short Year)
 	{

@@ -31,6 +31,7 @@ public:
 		{
 			// pushing
 			Date temp;
+			temp.fillWithRandom()
 			std::srand(std::rand());
 			int priority = rand() % 1000;
 			q.push(temp, priority);
@@ -54,15 +55,15 @@ public:
 		Date date, dateToAdd;
 		for (int i = 0; i < count; i++)
 		{
+			date.fillWithRandom();
+			dateToAdd.fillWithRandom();
 			dateToAdd.subtractYear(2000);
-
 			cout << "Adding ";
 			dateToAdd.print3();
 			cout << " to the "; date.print3(); cout << endl;
 			date.addDate(dateToAdd);
 			cout << "Result: "; date.print(); cout << endl;
-			date.fillWithRandom();
-			dateToAdd.fillWithRandom();
+			
 		}
 	}
 	static void SubtractDateDemonstration(int count)
@@ -71,6 +72,8 @@ public:
 		Date date, dateToSubtract;
 		for (int i = 0; i < count; i++)
 		{
+			date.fillWithRandom();
+			dateToSubtract.fillWithRandom();
 			dateToSubtract.subtractYear(2000);
 
 			cout << "Subtracting ";
@@ -78,8 +81,7 @@ public:
 			cout << " from "; date.print3(); cout << endl;
 			date.subtractDate(dateToSubtract);
 			cout << "Result: "; date.print(); cout << endl;
-			date.fillWithRandom();
-			dateToSubtract.fillWithRandom();
+			
 		}
 	}
 	static void DateDiffDemonstration(int count)
@@ -89,6 +91,8 @@ public:
 		int days;
 		for (int i = 0; i < count; i++)
 		{
+			date1.fillWithRandom();
+			date2.fillWithRandom();
 			date1.print();
 			cout << "\n";
 			date2.print();
@@ -96,8 +100,6 @@ public:
 			int days = Date::dateDiff(date1, date2);
 			cout << "Distance between two dates is " << days << " days\n"
 				<< "------------------------------------------------\n";
-			date1.fillWithRandom();
-			date2.fillWithRandom();
 		}
 	}
 	static void ConsoleInterface()
@@ -105,7 +107,7 @@ public:
 		using namespace std;
 		int option;
 		Queue<int>* q = NULL;
-		cout << "Choose data structure:\n1 - LinkedListQueue\n2 - VectorQueue\n3 - BSTQueue\n4 - BinaryHeapQueue\n";
+		cout << "Choose data structure:\n1 - LinkedListQueue\n2 - VectorQueue\n3 - BSTQueue\n4 - BinaryHeapQueue\n5 - Exit\n";
 		cin >> option;
 
 		// choosing data structure
