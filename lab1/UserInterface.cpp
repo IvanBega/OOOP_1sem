@@ -21,7 +21,7 @@ public:
 		UserInterface::QueueDemonstration(q, count);
 		auto stop = std::chrono::high_resolution_clock::now();
 		auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
-		std::cout << "\nTook " << duration.count() << " milliseconds";
+		std::cout << "\nTook " << duration.count() << " microseconds";
 	}
 	template<typename T>
 	static void QueueDemonstration(T q, int count)
@@ -155,6 +155,60 @@ public:
 			}
 			cout << "Choose next operation: ";
 			cin >> option;
+		}
+	}
+	static void ConsoleDateInterface()
+	{
+		using namespace std;
+		Date d1, d2;
+		int option = 0, days = 0;
+		while (option < 5)
+		{
+			cout << "\nChoose date operation:\n0 - Fill randomy\n1 - Fill from Console\n2 - Add date\n3 - Subtract date\n4 - Date distance\n5 - Main menu\n";
+			cin >> option;
+			switch (option)
+			{
+			case 0:
+				d1.fillWithRandom();
+				cout << "Your date is "; d1.print(); cout << "\n";
+				break;
+			case 1:
+				d1.fillFromConsole();
+				cout << "\n";
+				break;
+			case 2:
+				cout << "Enter date you want to add:\n";
+				d2.fillFromConsole();
+				cout << "\n";
+				d1.addDate(d2);
+				cout << "\n";
+				cout << "Result of addition is "; d1.print(); cout << "\n";
+				break;
+
+			case 3:
+				cout << "Enter date to subtract:\n";
+				d2.fillFromConsole();
+				cout << "\n";
+				d1.subtractDate(d2);
+				cout << "Result of subtraction is "; d1.print(); cout << "\n";
+
+				break;
+			case 4:
+				cout << "Enter date you want to compare to:\n";
+				d2.fillFromConsole();
+				cout << "\n";
+				d1.print();
+				cout << "\n";
+				d2.print();
+				cout << "\n";
+				days = Date::dateDiff(d1, d2);
+				cout << "Distance between two dates is " << days << " days\n"
+					<< "------------------------------------------------\n";
+				break;
+			case 5:
+				option = 5;
+				break;
+			}
 		}
 	}
 };

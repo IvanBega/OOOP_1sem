@@ -34,8 +34,23 @@ int main()
 	UserInterface::DateDiffDemonstration(10);
 	cout << "\n";
 
-	UserInterface::ConsoleInterface();
-	Date d;
-	d.fillFromConsole();
+	int option = 0;
+	while (option < 3)
+	{
+		cout << "Choose demonstration:\n1 - Queue demonstration\n2 - Date demonstration\n3 - Exit\n";
+		cin >> option;
+		switch (option)
+		{
+		case 1:
+			UserInterface::ConsoleQueueInterface();
+			break;
+		case 2:
+			UserInterface::ConsoleDateInterface();
+			break;
+		case 3:
+			option = 3;
+			break;
+		}
+	}
 	
 }
