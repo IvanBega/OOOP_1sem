@@ -102,7 +102,7 @@ public:
 				<< "------------------------------------------------\n";
 		}
 	}
-	static void ConsoleInterface()
+	static void ConsoleQueueInterface()
 	{
 		using namespace std;
 		int option;
