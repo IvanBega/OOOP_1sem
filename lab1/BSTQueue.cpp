@@ -49,7 +49,7 @@ private:
 		{
 			return new Tree(data, priority, NULL, NULL);
 		}
-		if (priority < current->priority)
+		if (priority <= current->priority)
 		{
 			current->lt = insert(current->lt, data, priority);
 		}

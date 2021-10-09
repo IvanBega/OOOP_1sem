@@ -14,18 +14,26 @@ public:
 			arr.push_back(temp);
 			return;
 		}
-		int i = 0;
-		while ( i < arr.size() && priority < arr[i].priority)
+		int low = 0, high = arr.size() - 1, mid = (low + high) / 2;
+		while (low <= high)
 		{
-			i++;
+			mid = (low + high) / 2;
+			if (priority < arr[mid].priority)
+			{
+				low = mid + 1;
+				mid = low;
+			}
+			else
+			{
+				high = mid - 1;
+				mid = high + 1;
+			}
 		}
-		auto it = arr.begin() + i;
+		auto it = arr.begin() + mid;
 		arr.insert(it, temp);
 	}
 	T pop()
 	{
-		//if (arr.empty())
-		//	return NULL;
 		elem temp = arr.back();
 		arr.pop_back();
 		return temp.data;

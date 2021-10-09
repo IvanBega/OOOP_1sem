@@ -41,7 +41,7 @@ public:
 	{
 		if ((year >= 0) && (month == 2) && (year % 4 == 0) && (day <= 29))
 			return true;
-		if (year < 0 || month > 12 || day > days_in_month[month - 1])
+		if (year < 0 || month <= 0 || month > 12 || day > days_in_month[month - 1])
 			return false;
 		if (hour < 0 || hour > 23 || minute < 0 || minute > 59 || second < 0 || second > 59)
 			return false;
