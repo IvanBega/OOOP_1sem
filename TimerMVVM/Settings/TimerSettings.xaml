@@ -1,0 +1,25 @@
+﻿<Window x:Class="TimerMVVM.TimerSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TimerMVVM"
+        mc:Ignorable="d"
+        Title="TimerSettings" Height="190" Width="180" WindowStyle="None">
+    <StackPanel >
+        <StackPanel Height="40"  Orientation="Horizontal">
+            <TextBlock Text="Hours:" FontSize="26" Height="40" Width="80"></TextBlock>
+            <TextBox Name ="HoursInput" FontSize="26" Height="40" Width="80"></TextBox>
+        </StackPanel>
+        <StackPanel Height="40" Orientation="Horizontal">
+            <TextBlock Text="Mins:" FontSize="26" Height="40" Width="80"></TextBlock>
+            <TextBox Name ="MinutesInput" FontSize="26" Height="40" Width="80"></TextBox>
+        </StackPanel>
+        <StackPanel Height="40" Orientation="Horizontal">
+            <TextBlock Text="Sec:" FontSize="26" Height="40" Width="80"></TextBlock>
+            <TextBox Name ="SecondsInput" FontSize="26" Height="40" Width="80"></TextBox>
+        </StackPanel>
+        <Button x:Name="ApplyBtn" Content="Apply"  Width="100" FontSize="18" Click="ApplyBtn_Click" />
+        <Button x:Name="CancelBtn" Content="Cancel" Width="100" FontSize="18" Click="CancelBtn_Click"/>
+    </StackPanel>
+</Window>

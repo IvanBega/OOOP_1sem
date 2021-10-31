@@ -1,0 +1,50 @@
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\bin\Debug\net5.0-windows\TimerMVVM.exe
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\bin\Debug\net5.0-windows\TimerMVVM.deps.json
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\bin\Debug\net5.0-windows\TimerMVVM.runtimeconfig.json
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\bin\Debug\net5.0-windows\TimerMVVM.runtimeconfig.dev.json
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\bin\Debug\net5.0-windows\TimerMVVM.dll
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\bin\Debug\net5.0-windows\ref\TimerMVVM.dll
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\bin\Debug\net5.0-windows\TimerMVVM.pdb
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.csproj.AssemblyReference.cache
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\MainWindow.g.cs
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\App.g.cs
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM_MarkupCompile.cache
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM_MarkupCompile.lref
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\MainWindow.baml
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.g.resources
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.GeneratedMSBuildEditorConfig.editorconfig
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.AssemblyInfoInputs.cache
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.AssemblyInfo.cs
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.csproj.CoreCompileInputs.cache
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.dll
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\ref\TimerMVVM.dll
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.pdb
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.genruntimeconfig.cache
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\AlarmSettings.g.cs
+D:\Программирование\CSharp\WPF\TimerMVVM\TimerMVVM\obj\Debug\net5.0-windows\AlarmSettings.baml
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\bin\Debug\net5.0-windows\TimerMVVM.exe
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\bin\Debug\net5.0-windows\TimerMVVM.deps.json
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\bin\Debug\net5.0-windows\TimerMVVM.runtimeconfig.json
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\bin\Debug\net5.0-windows\TimerMVVM.runtimeconfig.dev.json
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\bin\Debug\net5.0-windows\TimerMVVM.dll
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\bin\Debug\net5.0-windows\ref\TimerMVVM.dll
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\bin\Debug\net5.0-windows\TimerMVVM.pdb
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.csproj.AssemblyReference.cache
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\AlarmSettings.g.cs
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\MainWindow.g.cs
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\App.g.cs
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM_MarkupCompile.cache
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM_MarkupCompile.lref
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\AlarmSettings.baml
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\MainWindow.baml
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.g.resources
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.GeneratedMSBuildEditorConfig.editorconfig
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.AssemblyInfoInputs.cache
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.AssemblyInfo.cs
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.csproj.CoreCompileInputs.cache
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.dll
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\ref\TimerMVVM.dll
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.pdb
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\TimerMVVM.genruntimeconfig.cache
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\TimerSettings.g.cs
+D:\Программирование\CSharp\WPF\TimerMVVM — копия\TimerMVVM\obj\Debug\net5.0-windows\TimerSettings.baml

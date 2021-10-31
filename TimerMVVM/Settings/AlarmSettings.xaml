@@ -1,0 +1,33 @@
+﻿<Window x:Class="TimerMVVM.AlarmSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TimerMVVM"
+        mc:Ignorable="d"
+        Title="AlarmSettings" Height="400" Width="200" WindowStyle="None">
+    <StackPanel>
+        <StackPanel Height="40" Width="200" Orientation="Horizontal">
+            <TextBlock Text="Hours:" FontSize="26" Height="40" Width="80"></TextBlock>
+            <TextBox Name ="HoursInput" FontSize="26" Height="40" Width="80"></TextBox>
+        </StackPanel>
+        <StackPanel Height="40" Orientation="Horizontal">
+            <TextBlock Text="Mins:" FontSize="26" Height="40" Width="80"></TextBlock>
+            <TextBox Name ="MinutesInput" FontSize="26" Height="40" Width="80"></TextBox>
+        </StackPanel>
+        <StackPanel Height="40" Orientation="Horizontal">
+            <TextBlock Text="Capt:" FontSize="26" Height="40" Width="80"></TextBlock>
+            <TextBox Name ="CaptionInput" FontSize="26" Height="40" Width="80"></TextBox>
+        </StackPanel>
+        <CheckBox Name="IsActive" Content="Active" FontSize="12" Checked="IsActive_Checked"></CheckBox>
+        <TextBlock Height="40" Width="120" FontSize="26" Text="Active on:"/>
+        <ListBox ItemsSource="{Binding TheList}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding TheText}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Name="ApplyBtn" Content="Apply"  Width="100" Height="30" FontSize="18" Click="ApplyBtn_Click"></Button>
+    </StackPanel>
+</Window>

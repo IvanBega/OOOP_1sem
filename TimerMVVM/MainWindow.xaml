@@ -1,0 +1,31 @@
+﻿<Window Name="MyWindow" x:Class="TimerMVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TimerMVVM"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="400" Closed="MyWindow_Closed" >
+    <TabControl Name="MyTabControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <TabItem Header="Alarms">
+            <ScrollViewer>
+                <Canvas x:Name="AlarmCanvas" Height="450" Width="800">
+                    <Button x:Name="AddAlarmBtn" Canvas.Left="100" Canvas.Top="24" Height="50" Width="50" Content="+" FontSize="30" FontWeight="Bold" Click="AddAlarmBtn_Click"></Button>
+                    <Button x:Name="DelAlarmBtn" Canvas.Left="180" Canvas.Top="24" Height="50" Width="50" Content="-" FontSize="30" FontWeight="Bold" Click="DelAlarmBtn_Click"></Button>
+                    <StackPanel x:Name ="AlarmStackPanel" Height="698" Width="300" Canvas.Top="100">
+                    </StackPanel>
+                </Canvas>
+            </ScrollViewer>
+        </TabItem>
+        <TabItem Header="Timers">
+            <ScrollViewer>
+                <Canvas x:Name="TimerCanvas" Height="450" Width="800">
+                    <Button x:Name="AddTimerBtn" Canvas.Left="100" Canvas.Top="24" Height="50" Width="50" Content="+" FontSize="30" FontWeight="Bold" Click="AddTimerBtn_Click"></Button>
+                    <Button x:Name="DelTimerBtn" Canvas.Left="180" Canvas.Top="24" Height="50" Width="50" Content="-" FontSize="30" FontWeight="Bold" Click="DelTimerBtn_Click"></Button>
+                    <StackPanel x:Name ="TimerStackPanel" Height="693" Width="400" Canvas.Top="100">
+                    </StackPanel>
+                </Canvas>
+            </ScrollViewer>
+        </TabItem>
+    </TabControl>
+</Window>

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "TimerMVVM/1.0.0": {
+        "runtime": {
+          "TimerMVVM.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TimerMVVM/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
