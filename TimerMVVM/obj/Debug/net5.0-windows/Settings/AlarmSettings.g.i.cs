@@ -93,7 +93,7 @@ namespace TimerMVVM {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/lab2;V1.0.0.0;component/settings/alarmsettings.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/lab2;component/settings/alarmsettings.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Settings\AlarmSettings.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
