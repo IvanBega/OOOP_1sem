@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 namespace TimerMVVM
 {
     [Serializable]
-    public class AlarmViewModel
+    public class AlarmViewModel : BaseViewModel
     {
         private AlarmModel _alarmModel;
         private Alarm _alarmView;
@@ -32,18 +32,18 @@ namespace TimerMVVM
             _alarmSettings.ValueChanged += UpdateView;
             UpdateView(new object(), new EventArgs());
         }
-        private void DeleteBtn_Click(object s, RoutedEventArgs e)
+        protected override void DeleteBtn_Click(object s, RoutedEventArgs e)
         {
             _alarmModel.Active = false;
             _alarmView.RemoveFromStackPanel();
             MainWindow wnd = (MainWindow)Application.Current.MainWindow;
             wnd.RemoveAlarmFromList(this);
         }
-        private void EditBtn_Click(object s, RoutedEventArgs e)
+        protected override void EditBtn_Click(object s, RoutedEventArgs e)
         {
             _alarmSettings.FillData(_alarmModel);
         }
-        public void UpdateView(object sender, EventArgs e)
+        private void UpdateView(object sender, EventArgs e)
         {
             StringBuilder sb = new();
             if (_alarmModel.Hour < 10)
@@ -55,11 +55,11 @@ namespace TimerMVVM
             sb.Append(_alarmModel.Minute);
             _alarmView.SetTime(sb.ToString());
         }
-        public void SetDelBtnVisibility(Visibility option)
+        public override void SetDelBtnVisibility(Visibility option)
         {
             _alarmView.SetDelBtnVisibility(option);
         }
-        public void CloseSettingsWindow()
+        public override void CloseSettingsWindow()
         {
             _alarmSettings.Close();
         }
@@ -69,7 +69,7 @@ namespace TimerMVVM
             using SoundPlayer soundPlayer = new(@"D:\Программирование\CSharp\WPF\TestApp\TestApp\Sounds\Sound1.mp3");
             soundPlayer.Play();
         }
-        public bool IsActive()
+        public override bool IsActive()
         {
             return _alarmModel.Active;
         }

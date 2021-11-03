@@ -5,25 +5,25 @@ using System.Windows.Controls;
 
 namespace TimerMVVM
 {
-    public class TimerViewModel
+    public class TimerViewModel : BaseViewModel
     {
         private Timer _timerView;
         private TimerModel _timerModel;
         private TimerSettings _timerSettings = new();
         public TimerViewModel(StackPanel panel)
         {
-            _timerView = new Timer(panel, new RoutedEventHandler(EditBtn_Click), new RoutedEventHandler(DeleleBtn_Click),
+            _timerView = new Timer(panel, new RoutedEventHandler(EditBtn_Click), new RoutedEventHandler(DeleteBtn_Click),
                 new RoutedEventHandler(PauseBtn_Click));
             _timerModel = new();
         }
         public TimerViewModel(StackPanel panel, TimerModel model)
         {
-            _timerView = new Timer(panel, new RoutedEventHandler(EditBtn_Click), new RoutedEventHandler(DeleleBtn_Click),
+            _timerView = new Timer(panel, new RoutedEventHandler(EditBtn_Click), new RoutedEventHandler(DeleteBtn_Click),
                 new RoutedEventHandler(PauseBtn_Click));
             _timerModel = model;
             UpdateView();
         }
-        public void CloseSettingsWindow()
+        public override void CloseSettingsWindow()
         {
             _timerSettings.Close();
         }
@@ -70,24 +70,24 @@ namespace TimerMVVM
             time %= 60;
             _timerModel.Second = time;
         }
-        private void DeleleBtn_Click(object sender, RoutedEventArgs e)
+        protected override void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
             _timerView.RemoveFromStackPanel();
             MainWindow wnd = (MainWindow)Application.Current.MainWindow;
             wnd.RemoveTimerFromList(this);
         }
 
-        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        protected override void EditBtn_Click(object sender, RoutedEventArgs e)
         {
             _timerModel.Active = false;
             _timerSettings.FillData(_timerModel);
         }
 
-        public void SetDelBtnVisibility(Visibility option)
+        public override void SetDelBtnVisibility(Visibility option)
         {
             _timerView.SetDelBtnVisibility(option);
         }
-        public bool IsActive()
+        public override bool IsActive()
         {
             return _timerModel.Active;
         }
