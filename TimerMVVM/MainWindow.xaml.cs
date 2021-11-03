@@ -24,8 +24,8 @@ namespace TimerMVVM
         public MainWindow()
         {
             InitializeComponent();
-            TimerLogic();
-            AlarmLogic();
+            TimerLoop();
+            AlarmLoop();
         }
 
         public void RemoveTimerFromList(TimerViewModel t)
@@ -33,7 +33,7 @@ namespace TimerMVVM
             t.CloseSettingsWindow();
             _timerList.Remove(t);
         }
-        private async void TimerLogic()
+        private async void TimerLoop()
         {
             while (_windowActive)
             {
@@ -41,13 +41,13 @@ namespace TimerMVVM
                 {
                     if (t.IsActive())
                     {
-                        t.SubtractSecond();
+                        t.DoLogic();
                     }
                 }
                 await Task.Delay(1000);
             }
         }
-        private async void AlarmLogic()
+        private async void AlarmLoop()
         {
             while (_windowActive)
             {
@@ -55,7 +55,7 @@ namespace TimerMVVM
                 {
                     if (a.IsActive())
                     {
-                        a.Check();
+                        a.DoLogic();
                     }
                 }
                 await Task.Delay(2000);

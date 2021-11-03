@@ -73,18 +73,21 @@ namespace TimerMVVM
         {
             return _alarmModel.Active;
         }
-        public void Check()
+        public override void DoLogic()
         {
             int hourNow = DateTime.Now.Hour;
             int minuteNow = DateTime.Now.Minute;
             int dayNow = (int) DateTime.Now.DayOfWeek;
             if (_alarmSettings.TheList[dayNow].IsSelected && hourNow == _alarmModel.Hour && minuteNow == _alarmModel.Minute)
             {
-                _alarmModel.Active = false;
-                MessageBox.Show(String.Format("Now is {0}:{1}", _alarmModel.Hour, _alarmModel.Minute));          
+                Activate();       
             }
         }
-
+        protected override void Activate()
+        {
+            _alarmModel.Active = false;
+            MessageBox.Show("Your timer is active!");
+        }
         public AlarmModel GetModel()
         {
             return _alarmModel;

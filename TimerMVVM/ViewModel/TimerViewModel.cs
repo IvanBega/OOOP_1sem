@@ -60,15 +60,22 @@ namespace TimerMVVM
             sb.Append(_timerModel.Second);
             _timerView.SetTime(sb.ToString());
         }
-        public void SubtractSecond()
+        public override void DoLogic()
         {
             UpdateView();
             int time = _timerModel.Hour * 3600 + _timerModel.Minute * 60 + _timerModel.Second - 1;
-            _timerModel.Hour = time / 3600;
-            time %= 3600;
-            _timerModel.Minute = time / 60;
-            time %= 60;
-            _timerModel.Second = time;
+            if (time > 0)
+            {
+                _timerModel.Hour = time / 3600;
+                time %= 3600;
+                _timerModel.Minute = time / 60;
+                time %= 60;
+                _timerModel.Second = time;
+            }
+            else
+            {
+                Activate();
+            }
         }
         protected override void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -95,6 +102,11 @@ namespace TimerMVVM
         public TimerModel GetModel()
         {
             return _timerModel;
+        }
+        protected override void Activate()
+        {
+            _timerModel.Active = false;
+            MessageBox.Show("Your timer is active!");
         }
     }
 }
