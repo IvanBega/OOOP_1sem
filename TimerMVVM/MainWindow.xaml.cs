@@ -20,6 +20,7 @@ namespace TimerMVVM
     {
         private List<AlarmViewModel> _alarmList = new();
         private List<TimerViewModel> _timerList = new();
+        private bool _windowActive = true;
         public MainWindow()
         {
             InitializeComponent();
@@ -34,7 +35,7 @@ namespace TimerMVVM
         }
         private async void TimerLogic()
         {
-            while (true)
+            while (_windowActive)
             {
                 foreach (var t in _timerList)
                 {
@@ -43,12 +44,12 @@ namespace TimerMVVM
                         t.SubtractSecond();
                     }
                 }
-                await Task.Delay(500);
+                await Task.Delay(1000);
             }
         }
         private async void AlarmLogic()
         {
-            while (true)
+            while (_windowActive)
             {
                 foreach (var a in _alarmList)
                 {
@@ -128,12 +129,20 @@ namespace TimerMVVM
 
         private void MyWindow_Closing(object sender, CancelEventArgs e)
         {
+            _windowActive = false;
             List<AlarmModel> alarmList = new();
             foreach(var a in _alarmList)
             {
                 alarmList.Add(a.GetModel());
             }
             SaveListAsXmlFormat<AlarmModel>(alarmList, "Alarms.xml");
+
+            List<TimerModel> timerList = new();
+            foreach (var t in _timerList)
+            {
+                timerList.Add(t.GetModel());
+            }
+            SaveListAsXmlFormat<TimerModel>(timerList, "Timers.xml");
         }
 
         private void SaveListAsXmlFormat<T>(List<T> list, string fileName)
@@ -148,7 +157,6 @@ namespace TimerMVVM
 
         private T ReadListAsXmlFormat<T>(string fileName)
         {
-            // Create a typed instance of the XmlSerializer
             XmlSerializer xmlFormat = new XmlSerializer(typeof(T));
             using (Stream fStream = new FileStream(fileName, FileMode.Open))
             {
@@ -164,12 +172,25 @@ namespace TimerMVVM
             if (File.Exists("Alarms.xml"))
             {
                 alarmModels = ReadListAsXmlFormat<List<AlarmModel>>("Alarms.xml");
+                foreach (var a in alarmModels)
+                {
+                    AlarmViewModel avm = new(AlarmStackPanel, a);
+                    _alarmList.Add(avm);
+                }
             }
-            foreach (var a in alarmModels)
+
+
+            List<TimerModel> timerModels = new();
+            if (File.Exists("Timers.xml"))
             {
-                AlarmViewModel avm = new(AlarmStackPanel, a);
-                _alarmList.Add(avm);
+                timerModels = ReadListAsXmlFormat<List<TimerModel>>("Timers.xml");
+                foreach (var t in timerModels)
+                {
+                    TimerViewModel tvm = new(TimerStackPanel, t);
+                    _timerList.Add(tvm);
+                }
             }
+
         }
     }
 }

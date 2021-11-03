@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,12 +8,20 @@ namespace TimerMVVM
     public class TimerViewModel
     {
         private Timer _timerView;
-        private TimerModel _timerModel = new();
+        private TimerModel _timerModel;
         private TimerSettings _timerSettings = new();
         public TimerViewModel(StackPanel panel)
         {
             _timerView = new Timer(panel, new RoutedEventHandler(EditBtn_Click), new RoutedEventHandler(DeleleBtn_Click),
                 new RoutedEventHandler(PauseBtn_Click));
+            _timerModel = new();
+        }
+        public TimerViewModel(StackPanel panel, TimerModel model)
+        {
+            _timerView = new Timer(panel, new RoutedEventHandler(EditBtn_Click), new RoutedEventHandler(DeleleBtn_Click),
+                new RoutedEventHandler(PauseBtn_Click));
+            _timerModel = model;
+            UpdateView();
         }
         public void CloseSettingsWindow()
         {
@@ -81,6 +90,11 @@ namespace TimerMVVM
         public bool IsActive()
         {
             return _timerModel.Active;
+        }
+
+        public TimerModel GetModel()
+        {
+            return _timerModel;
         }
     }
 }
