@@ -50,3 +50,5 @@ D:\Программирование\CSharp\WPF\lab2\TimerMVVM\obj\Debug\net5.0-w
 D:\Программирование\CSharp\WPF\lab2\TimerMVVM\obj\Debug\net5.0-windows\ref\lab2.dll
 D:\Программирование\CSharp\WPF\lab2\TimerMVVM\obj\Debug\net5.0-windows\lab2.pdb
 D:\Программирование\CSharp\WPF\lab2\TimerMVVM\obj\Debug\net5.0-windows\lab2.genruntimeconfig.cache
+D:\Программирование\CSharp\WPF\lab2\TimerMVVM\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+D:\Программирование\CSharp\WPF\lab2\TimerMVVM\obj\Debug\net5.0-windows\lab2.csproj.CopyComplete

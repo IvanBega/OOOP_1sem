@@ -1,23 +1,36 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Media;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml.Serialization;
 
 namespace TimerMVVM
 {
+    [Serializable]
     public class AlarmViewModel
     {
-        private AlarmModel _alarmModel = new();
+        private AlarmModel _alarmModel;
         private Alarm _alarmView;
         private AlarmSettings _alarmSettings = new();
-        private int _hourNow;
-        private int _minuteNow;
+        public AlarmViewModel()
+        {
+
+        }
         public AlarmViewModel(StackPanel panel)
         {
+            _alarmModel = new();
             _alarmView = new(panel, new RoutedEventHandler(EditBtn_Click), new RoutedEventHandler(DeleteBtn_Click));
             _alarmSettings.ValueChanged += UpdateView;
+        }
+        public AlarmViewModel(StackPanel panel,  AlarmModel model)
+        {
+            _alarmModel = model;
+            _alarmView = new(panel, new RoutedEventHandler(EditBtn_Click), new RoutedEventHandler(DeleteBtn_Click));
+            _alarmSettings.ValueChanged += UpdateView;
+            UpdateView(new object(), new EventArgs());
         }
         private void DeleteBtn_Click(object s, RoutedEventArgs e)
         {
@@ -62,13 +75,19 @@ namespace TimerMVVM
         }
         public void Check()
         {
-            _hourNow = DateTime.Now.Hour;
-            _minuteNow = DateTime.Now.Minute;
-            if (_hourNow == _alarmModel.Hour && _minuteNow == _alarmModel.Minute)
+            int hourNow = DateTime.Now.Hour;
+            int minuteNow = DateTime.Now.Minute;
+            int dayNow = (int) DateTime.Now.DayOfWeek;
+            if (_alarmSettings.TheList[dayNow].IsSelected && hourNow == _alarmModel.Hour && minuteNow == _alarmModel.Minute)
             {
-                MessageBox.Show(String.Format("Now is {0}:{1}", _alarmModel.Hour, _alarmModel.Minute));
                 _alarmModel.Active = false;
+                MessageBox.Show(String.Format("Now is {0}:{1}", _alarmModel.Hour, _alarmModel.Minute));          
             }
+        }
+
+        public AlarmModel GetModel()
+        {
+            return _alarmModel;
         }
     }
 }

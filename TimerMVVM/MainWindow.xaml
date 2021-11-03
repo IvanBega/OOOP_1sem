@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimerMVVM"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="400" Closed="MyWindow_Closed" >
+        Title="MainWindow" Height="450" Width="400" Closed="MyWindow_Closed"  Closing="MyWindow_Closing" Initialized="MyWindow_Initialized">
     <TabControl Name="MyTabControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <TabItem Header="Alarms">
-            <ScrollViewer>
+            <ScrollViewer x:Name="AlarmSV" Height="400">
                 <Canvas x:Name="AlarmCanvas" Height="450" Width="800">
                     <Button x:Name="AddAlarmBtn" Canvas.Left="100" Canvas.Top="24" Height="50" Width="50" Content="+" FontSize="30" FontWeight="Bold" Click="AddAlarmBtn_Click"></Button>
                     <Button x:Name="DelAlarmBtn" Canvas.Left="180" Canvas.Top="24" Height="50" Width="50" Content="-" FontSize="30" FontWeight="Bold" Click="DelAlarmBtn_Click"></Button>

@@ -18,13 +18,13 @@ namespace TimerMVVM
             InitializeComponent();
             TheList = new ObservableCollection<BoolStringClass>
             {
+                new BoolStringClass { IsSelected = true, TheText = "Sunday" },
                 new BoolStringClass { IsSelected = true, TheText = "Monday" },
                 new BoolStringClass { IsSelected = true, TheText = "Tueday" },
                 new BoolStringClass { IsSelected = true, TheText = "Wednesday" },
                 new BoolStringClass { IsSelected = true, TheText = "Thursday" },
                 new BoolStringClass { IsSelected = true, TheText = "Friday" },
-                new BoolStringClass { IsSelected = true, TheText = "Saturday" },
-                new BoolStringClass { IsSelected = true, TheText = "Sunday" }
+                new BoolStringClass { IsSelected = true, TheText = "Saturday" }
             };
             this.DataContext = this;
         }
@@ -54,15 +54,10 @@ namespace TimerMVVM
             _alarmModelToFill = model;
             this.Show();
         }
-
         private void IsActive_Checked(object sender, RoutedEventArgs e)
         {
 
         }
     }
-    public class BoolStringClass
-    {
-        public string TheText { get; set; }
-        public bool IsSelected { get; set; }
-    }
+    
 }

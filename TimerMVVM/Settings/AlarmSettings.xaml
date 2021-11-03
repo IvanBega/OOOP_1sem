@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimerMVVM"
         mc:Ignorable="d"
-        Title="AlarmSettings" Height="400" Width="200" WindowStyle="None">
+        Title="AlarmSettings" Height="300" Width="200" WindowStyle="None">
     <StackPanel>
         <StackPanel Height="40" Width="200" Orientation="Horizontal">
             <TextBlock Text="Hours:" FontSize="26" Height="40" Width="80"></TextBlock>
@@ -14,10 +14,6 @@
         <StackPanel Height="40" Orientation="Horizontal">
             <TextBlock Text="Mins:" FontSize="26" Height="40" Width="80"></TextBlock>
             <TextBox Name ="MinutesInput" FontSize="26" Height="40" Width="80"></TextBox>
-        </StackPanel>
-        <StackPanel Height="40" Orientation="Horizontal">
-            <TextBlock Text="Capt:" FontSize="26" Height="40" Width="80"></TextBlock>
-            <TextBox Name ="CaptionInput" FontSize="26" Height="40" Width="80"></TextBox>
         </StackPanel>
         <CheckBox Name="IsActive" Content="Active" FontSize="12" Checked="IsActive_Checked"></CheckBox>
         <TextBlock Height="40" Width="120" FontSize="26" Text="Active on:"/>

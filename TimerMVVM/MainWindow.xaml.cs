@@ -1,8 +1,15 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace TimerMVVM
 {
@@ -45,7 +52,10 @@ namespace TimerMVVM
             {
                 foreach (var a in _alarmList)
                 {
-                    a.Check();
+                    if (a.IsActive())
+                    {
+                        a.Check();
+                    }
                 }
                 await Task.Delay(2000);
             }
@@ -113,6 +123,52 @@ namespace TimerMVVM
             foreach (TimerViewModel t in _timerList)
             {
                 t.SetDelBtnVisibility(option);
+            }
+        }
+
+        private void MyWindow_Closing(object sender, CancelEventArgs e)
+        {
+            List<AlarmModel> alarmList = new();
+            foreach(var a in _alarmList)
+            {
+                alarmList.Add(a.GetModel());
+            }
+            SaveListAsXmlFormat<AlarmModel>(alarmList, "Alarms.xml");
+        }
+
+        private void SaveListAsXmlFormat<T>(List<T> list, string fileName)
+        {
+            XmlSerializer xmlFormat = new XmlSerializer(typeof(List<T>));
+            using (Stream fStream = new FileStream(fileName,
+            FileMode.Create, FileAccess.Write, FileShare.None))
+            {
+                xmlFormat.Serialize(fStream, list);
+            }
+        }
+
+        private T ReadListAsXmlFormat<T>(string fileName)
+        {
+            // Create a typed instance of the XmlSerializer
+            XmlSerializer xmlFormat = new XmlSerializer(typeof(T));
+            using (Stream fStream = new FileStream(fileName, FileMode.Open))
+            {
+                T obj = default;
+                obj = (T)xmlFormat.Deserialize(fStream);
+                return obj;
+            }
+        }
+
+        private void MyWindow_Initialized(object sender, EventArgs e)
+        {
+            List<AlarmModel> alarmModels = new();
+            if (File.Exists("Alarms.xml"))
+            {
+                alarmModels = ReadListAsXmlFormat<List<AlarmModel>>("Alarms.xml");
+            }
+            foreach (var a in alarmModels)
+            {
+                AlarmViewModel avm = new(AlarmStackPanel, a);
+                _alarmList.Add(avm);
             }
         }
     }
