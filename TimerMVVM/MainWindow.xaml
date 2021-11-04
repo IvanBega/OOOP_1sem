@@ -9,7 +9,7 @@
     <TabControl Name="MyTabControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <TabItem Header="Alarms">
             <ScrollViewer x:Name="AlarmSV" Height="400">
-                <Canvas x:Name="AlarmCanvas" Height="450" Width="800">
+                <Canvas x:Name="AlarmCanvas" Height="400">
                     <Button x:Name="AddAlarmBtn" Canvas.Left="100" Canvas.Top="24" Height="50" Width="50" Content="+" FontSize="30" FontWeight="Bold" Click="AddAlarmBtn_Click"></Button>
                     <Button x:Name="DelAlarmBtn" Canvas.Left="180" Canvas.Top="24" Height="50" Width="50" Content="-" FontSize="30" FontWeight="Bold" Click="DelAlarmBtn_Click"></Button>
                     <StackPanel x:Name ="AlarmStackPanel" Height="698" Width="300" Canvas.Top="100">
@@ -18,8 +18,8 @@
             </ScrollViewer>
         </TabItem>
         <TabItem Header="Timers">
-            <ScrollViewer>
-                <Canvas x:Name="TimerCanvas" Height="450" Width="800">
+            <ScrollViewer x:Name="TimerSV" Height="400">
+                <Canvas x:Name="TimerCanvas" Height="400" Width="800">
                     <Button x:Name="AddTimerBtn" Canvas.Left="100" Canvas.Top="24" Height="50" Width="50" Content="+" FontSize="30" FontWeight="Bold" Click="AddTimerBtn_Click"></Button>
                     <Button x:Name="DelTimerBtn" Canvas.Left="180" Canvas.Top="24" Height="50" Width="50" Content="-" FontSize="30" FontWeight="Bold" Click="DelTimerBtn_Click"></Button>
                     <StackPanel x:Name ="TimerStackPanel" Height="693" Width="400" Canvas.Top="100">

@@ -38,6 +38,10 @@ namespace TimerMVVM
             _alarmView.RemoveFromStackPanel();
             MainWindow wnd = (MainWindow)Application.Current.MainWindow;
             wnd.RemoveAlarmFromList(this);
+            if (wnd.AlarmsCount() >= 3)
+            {
+                wnd.AlarmCanvas.Height -= 100;
+            }
         }
         protected override void EditBtn_Click(object s, RoutedEventArgs e)
         {

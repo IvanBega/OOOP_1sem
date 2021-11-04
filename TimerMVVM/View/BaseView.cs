@@ -27,9 +27,9 @@ namespace TimerMVVM
         public BaseView(StackPanel mainPanel, RoutedEventHandler editBtnHandler, RoutedEventHandler delBtnHandler)
         {
             _mainPanel = mainPanel;
-            initializeComponents(editBtnHandler, delBtnHandler);
+            InitializeComponents(editBtnHandler, delBtnHandler);
         }
-        private void initializeComponents(RoutedEventHandler editBtnHandler, RoutedEventHandler delBtnHandler)
+        private void InitializeComponents(RoutedEventHandler editBtnHandler, RoutedEventHandler delBtnHandler)
         {
             _label = new Label
             {

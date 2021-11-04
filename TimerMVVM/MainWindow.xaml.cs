@@ -66,13 +66,16 @@ namespace TimerMVVM
         {
             AlarmViewModel t = new(AlarmStackPanel);
             _alarmList.Add(t);
+            if (AlarmsCount() > 3)
+            {
+                AlarmCanvas.Height += 100;
+            }
         }
         public void RemoveAlarmFromList(AlarmViewModel a)
         {
             a.CloseSettingsWindow();
             _alarmList.Remove(a);
         }
-
         private void MyWindow_Closed(object sender, EventArgs e)
         {
             foreach (AlarmViewModel a in _alarmList)
@@ -84,7 +87,6 @@ namespace TimerMVVM
                 t.CloseSettingsWindow();
             }
         }
-
         private void DelAlarmBtn_Click(object sender, RoutedEventArgs e)
         {
             Visibility option = Visibility.Visible;
@@ -102,13 +104,15 @@ namespace TimerMVVM
                 t.SetDelBtnVisibility(option);
             }
         }
-
         private void AddTimerBtn_Click(object sender, RoutedEventArgs e)
         {
             TimerViewModel t = new(TimerStackPanel);
             _timerList.Add(t);
+            if (TimersCount() > 3)
+            {
+                TimerCanvas.Height += 100;
+            }
         }
-
         private void DelTimerBtn_Click(object sender, RoutedEventArgs e)
         {
             Visibility option = Visibility.Visible;
@@ -126,7 +130,6 @@ namespace TimerMVVM
                 t.SetDelBtnVisibility(option);
             }
         }
-
         private void MyWindow_Closing(object sender, CancelEventArgs e)
         {
             _windowActive = false;
@@ -144,7 +147,6 @@ namespace TimerMVVM
             }
             SaveListAsXmlFormat<TimerModel>(timerList, "Timers.xml");
         }
-
         private void SaveListAsXmlFormat<T>(List<T> list, string fileName)
         {
             XmlSerializer xmlFormat = new XmlSerializer(typeof(List<T>));
@@ -154,7 +156,6 @@ namespace TimerMVVM
                 xmlFormat.Serialize(fStream, list);
             }
         }
-
         private T ReadListAsXmlFormat<T>(string fileName)
         {
             XmlSerializer xmlFormat = new XmlSerializer(typeof(T));
@@ -165,7 +166,6 @@ namespace TimerMVVM
                 return obj;
             }
         }
-
         private void MyWindow_Initialized(object sender, EventArgs e)
         {
             List<AlarmModel> alarmModels = new();
@@ -176,6 +176,10 @@ namespace TimerMVVM
                 {
                     AlarmViewModel avm = new(AlarmStackPanel, a);
                     _alarmList.Add(avm);
+                    if (AlarmsCount() > 3)
+                    {
+                        AlarmCanvas.Height += 100;
+                    }
                 }
             }
 
@@ -188,9 +192,21 @@ namespace TimerMVVM
                 {
                     TimerViewModel tvm = new(TimerStackPanel, t);
                     _timerList.Add(tvm);
+                    if (TimersCount() > 3)
+                    {
+                        TimerCanvas.Height += 100;
+                    }
                 }
             }
 
+        }
+        public int AlarmsCount()
+        {
+            return _alarmList.Count;
+        }
+        public int TimersCount()
+        {
+            return _timerList.Count;
         }
     }
 }

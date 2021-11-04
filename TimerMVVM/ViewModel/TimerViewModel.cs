@@ -64,7 +64,7 @@ namespace TimerMVVM
         {
             UpdateView();
             int time = _timerModel.Hour * 3600 + _timerModel.Minute * 60 + _timerModel.Second - 1;
-            if (time > 0)
+            if (time >= 0)
             {
                 _timerModel.Hour = time / 3600;
                 time %= 3600;
@@ -82,6 +82,10 @@ namespace TimerMVVM
             _timerView.RemoveFromStackPanel();
             MainWindow wnd = (MainWindow)Application.Current.MainWindow;
             wnd.RemoveTimerFromList(this);
+            if (wnd.TimersCount() >= 3)
+            {
+                wnd.TimerCanvas.Height -= 100;
+            }
         }
 
         protected override void EditBtn_Click(object sender, RoutedEventArgs e)
