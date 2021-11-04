@@ -82,6 +82,7 @@ namespace TimerMVVM
             _timerView.RemoveFromStackPanel();
             MainWindow wnd = (MainWindow)Application.Current.MainWindow;
             wnd.RemoveTimerFromList(this);
+            wnd.TimerStackPanel.Height -= 100;
             if (wnd.TimersCount() >= 3)
             {
                 wnd.TimerCanvas.Height -= 100;
@@ -111,6 +112,11 @@ namespace TimerMVVM
         {
             _timerModel.Active = false;
             MessageBox.Show("Your timer is active!");
+        }
+
+        public void SetControlsPanelVisibility(Visibility option)
+        {
+            _timerView.SetControlsPanelVisibility(option);
         }
     }
 }

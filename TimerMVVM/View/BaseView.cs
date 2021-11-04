@@ -20,6 +20,10 @@ namespace TimerMVVM
         {
             _label.Content = time;
         }
+        public void SetControlsPanelVisibility(Visibility visibility)
+        {
+            _controlsPanel.Visibility = visibility;
+        }
         public void SetDelBtnVisibility(Visibility option)
         {
             _deleteBtn.Visibility = option;

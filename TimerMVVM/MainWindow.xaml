@@ -5,25 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimerMVVM"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="400" Closed="MyWindow_Closed"  Closing="MyWindow_Closing" Initialized="MyWindow_Initialized">
+        Title="MainWindow" Height="450" Width="400" Closed="MyWindow_Closed"  Closing="MyWindow_Closing" Initialized="MyWindow_Initialized" ResizeMode="CanMinimize">
     <TabControl Name="MyTabControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <TabItem Header="Alarms">
             <ScrollViewer x:Name="AlarmSV" Height="400">
                 <Canvas x:Name="AlarmCanvas" Height="400">
-                    <Button x:Name="AddAlarmBtn" Canvas.Left="100" Canvas.Top="24" Height="50" Width="50" Content="+" FontSize="30" FontWeight="Bold" Click="AddAlarmBtn_Click"></Button>
-                    <Button x:Name="DelAlarmBtn" Canvas.Left="180" Canvas.Top="24" Height="50" Width="50" Content="-" FontSize="30" FontWeight="Bold" Click="DelAlarmBtn_Click"></Button>
-                    <StackPanel x:Name ="AlarmStackPanel" Height="698" Width="300" Canvas.Top="100">
-                    </StackPanel>
+                    <Button x:Name="AddAlarmBtn" Canvas.Left="125" Canvas.Top="24" Height="50" Width="50" Content="+" FontSize="30" FontWeight="Bold" Click="AddAlarmBtn_Click"></Button>
+                    <Button x:Name="DelAlarmBtn" Canvas.Left="210" Canvas.Top="24" Height="50" Width="50" Content="-" FontSize="30" FontWeight="Bold" Click="DelAlarmBtn_Click"></Button>
+                    <ComboBox x:Name="AlarmComboBox" Height="30" Width="85" Canvas.Left="10" Canvas.Top="44" SelectionChanged="AlarmComboBox_SelectionChanged">
+                        <TextBlock x:Name="None">None</TextBlock>
+                        <TextBlock>Active</TextBlock>
+                        <TextBlock>Not active</TextBlock>
+                    </ComboBox>
+                    <Label Content="Filter by" FontSize="16" Canvas.Left="15" Canvas.Top="13"></Label>
+                    <StackPanel x:Name ="AlarmStackPanel" Height="0" Width="300" Canvas.Top="100"></StackPanel>
                 </Canvas>
             </ScrollViewer>
         </TabItem>
         <TabItem Header="Timers">
             <ScrollViewer x:Name="TimerSV" Height="400">
-                <Canvas x:Name="TimerCanvas" Height="400" Width="800">
-                    <Button x:Name="AddTimerBtn" Canvas.Left="100" Canvas.Top="24" Height="50" Width="50" Content="+" FontSize="30" FontWeight="Bold" Click="AddTimerBtn_Click"></Button>
-                    <Button x:Name="DelTimerBtn" Canvas.Left="180" Canvas.Top="24" Height="50" Width="50" Content="-" FontSize="30" FontWeight="Bold" Click="DelTimerBtn_Click"></Button>
-                    <StackPanel x:Name ="TimerStackPanel" Height="693" Width="400" Canvas.Top="100">
-                    </StackPanel>
+                <Canvas x:Name="TimerCanvas" Height="400">
+                    <Button x:Name="AddTimerBtn" Canvas.Left="125" Canvas.Top="24" Height="50" Width="50" Content="+" FontSize="30" FontWeight="Bold" Click="AddTimerBtn_Click"></Button>
+                    <Button x:Name="DelTimerBtn" Canvas.Left="210" Canvas.Top="24" Height="50" Width="50" Content="-" FontSize="30" FontWeight="Bold" Click="DelTimerBtn_Click"></Button>
+                    <StackPanel x:Name ="TimerStackPanel" Height="0" Width="400" Canvas.Top="100"></StackPanel>
+                    <ComboBox x:Name="TimerComboBox" Height="30" Width="85" Canvas.Left="10" Canvas.Top="44" SelectionChanged="TimerComboBox_SelectionChanged">
+                        <TextBlock>None</TextBlock>
+                        <TextBlock>Active</TextBlock>
+                        <TextBlock>Not active</TextBlock>
+                    </ComboBox>
+                    <Label Content="Filter by" FontSize="16" Canvas.Left="15" Canvas.Top="13"></Label>
                 </Canvas>
             </ScrollViewer>
         </TabItem>

@@ -51,6 +51,7 @@ namespace TimerMVVM
         }
         public void FillData(AlarmModel model)
         {
+            IsActive.IsChecked = model.Active;
             _alarmModelToFill = model;
             this.Show();
         }
@@ -58,6 +59,14 @@ namespace TimerMVVM
         {
 
         }
+        private void CancelBtn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+        }
     }
-    
+    public class BoolStringClass
+    {
+        public string TheText { get; set; }
+        public bool IsSelected { get; set; }
+    }
 }

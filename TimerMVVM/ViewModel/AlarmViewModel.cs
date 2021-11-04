@@ -38,6 +38,7 @@ namespace TimerMVVM
             _alarmView.RemoveFromStackPanel();
             MainWindow wnd = (MainWindow)Application.Current.MainWindow;
             wnd.RemoveAlarmFromList(this);
+            wnd.AlarmStackPanel.Height -= 100;
             if (wnd.AlarmsCount() >= 3)
             {
                 wnd.AlarmCanvas.Height -= 100;
@@ -95,6 +96,10 @@ namespace TimerMVVM
         public AlarmModel GetModel()
         {
             return _alarmModel;
+        }
+        public void SetControlsPanelVisibility(Visibility option)
+        {
+            _alarmView.SetControlsPanelVisibility(option);
         }
     }
 }

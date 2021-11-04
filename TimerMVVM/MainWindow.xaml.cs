@@ -2,12 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -58,7 +60,7 @@ namespace TimerMVVM
                         a.DoLogic();
                     }
                 }
-                await Task.Delay(2000);
+                await Task.Delay(60000);
             }
         }
 
@@ -66,6 +68,7 @@ namespace TimerMVVM
         {
             AlarmViewModel t = new(AlarmStackPanel);
             _alarmList.Add(t);
+            AlarmStackPanel.Height += 100;
             if (AlarmsCount() > 3)
             {
                 AlarmCanvas.Height += 100;
@@ -108,6 +111,7 @@ namespace TimerMVVM
         {
             TimerViewModel t = new(TimerStackPanel);
             _timerList.Add(t);
+            TimerStackPanel.Height += 100;
             if (TimersCount() > 3)
             {
                 TimerCanvas.Height += 100;
@@ -176,6 +180,7 @@ namespace TimerMVVM
                 {
                     AlarmViewModel avm = new(AlarmStackPanel, a);
                     _alarmList.Add(avm);
+                    AlarmStackPanel.Height += 100;
                     if (AlarmsCount() > 3)
                     {
                         AlarmCanvas.Height += 100;
@@ -192,6 +197,7 @@ namespace TimerMVVM
                 {
                     TimerViewModel tvm = new(TimerStackPanel, t);
                     _timerList.Add(tvm);
+                    TimerStackPanel.Height += 100;
                     if (TimersCount() > 3)
                     {
                         TimerCanvas.Height += 100;
@@ -207,6 +213,66 @@ namespace TimerMVVM
         public int TimersCount()
         {
             return _timerList.Count;
+        }
+
+        private void AlarmComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox box = (ComboBox)sender;
+            foreach (var a in _alarmList)
+            {
+                a.SetControlsPanelVisibility(Visibility.Visible);
+            }
+            switch (box.SelectedIndex)
+            {
+                case 1:
+                    foreach (var a in _alarmList)
+                    {
+                        if (!a.IsActive())
+                        {
+                            a.SetControlsPanelVisibility(Visibility.Collapsed);
+                        }
+                    }
+                    break;
+                case 2:
+                    foreach (var a in _alarmList)
+                    {
+                        if (a.IsActive())
+                        {
+                            a.SetControlsPanelVisibility(Visibility.Collapsed);
+                        }
+                    }
+                    break;
+            }
+        }
+
+        private void TimerComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox box = (ComboBox)sender;
+            foreach (var t in _timerList)
+            {
+                t.SetControlsPanelVisibility(Visibility.Visible);
+            }
+            switch (box.SelectedIndex)
+            {
+                case 1:
+                    foreach(var t in _timerList)
+                    {
+                        if (!t.IsActive())
+                        {
+                            t.SetControlsPanelVisibility(Visibility.Collapsed);
+                        }
+                    }
+                    break;
+                case 2:
+                    foreach (var t in _timerList)
+                    {
+                        if (t.IsActive())
+                        {
+                            t.SetControlsPanelVisibility(Visibility.Collapsed);
+                        }
+                    }
+                    break;
+            }
         }
     }
 }
