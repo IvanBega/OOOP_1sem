@@ -68,12 +68,6 @@ namespace TimerMVVM
         {
             _alarmSettings.Close();
         }
-        public void PlayTimerSound(object s, DoWorkEventArgs e)
-        {
-
-            using SoundPlayer soundPlayer = new(@"D:\Программирование\CSharp\WPF\TestApp\TestApp\Sounds\Sound1.mp3");
-            soundPlayer.Play();
-        }
         public override bool IsActive()
         {
             return _alarmModel.Active;
@@ -91,7 +85,7 @@ namespace TimerMVVM
         protected override void Activate()
         {
             _alarmModel.Active = false;
-            MessageBox.Show("Your timer is active!");
+            Notify("Your alarm is active!");
         }
         public AlarmModel GetModel()
         {

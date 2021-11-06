@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -33,7 +34,7 @@ namespace TimerMVVM
             {
                 _timerModel.Active = false;
             }
-            else
+            else if (!(_timerModel.Hour == 0 && _timerModel.Minute == 0 && _timerModel.Second == 0))
             {
                 _timerModel.Active = true;
             }
@@ -111,7 +112,7 @@ namespace TimerMVVM
         protected override void Activate()
         {
             _timerModel.Active = false;
-            MessageBox.Show("Your timer is active!");
+            Notify("Your timer is active!");
         }
 
         public void SetControlsPanelVisibility(Visibility option)
