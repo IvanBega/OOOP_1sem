@@ -12,7 +12,7 @@ namespace TimerMVVM
     {
         public ObservableCollection<BoolStringClass> TheList { get; private set; }
         private AlarmModel _alarmModelToFill;
-        public event EventHandler<EventArgs> ValueChanged;
+        public event Action ValueChanged;
         public AlarmSettings()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace TimerMVVM
                 _alarmModelToFill.Hour = hour;
                 _alarmModelToFill.Minute = minute;
                 _alarmModelToFill.Active = IsActive.IsChecked ?? false;
-                ValueChanged?.Invoke(sender, e);
+                ValueChanged?.Invoke();
             }
             else
             {

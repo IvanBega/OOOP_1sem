@@ -9,7 +9,6 @@ using System.Xml.Serialization;
 
 namespace TimerMVVM
 {
-    [Serializable]
     public class AlarmViewModel : BaseViewModel
     {
         private AlarmModel _alarmModel;
@@ -30,7 +29,7 @@ namespace TimerMVVM
             _alarmModel = model;
             _alarmView = new(panel, new RoutedEventHandler(EditBtn_Click), new RoutedEventHandler(DeleteBtn_Click));
             _alarmSettings.ValueChanged += UpdateView;
-            UpdateView(new object(), new EventArgs());
+            UpdateView();
         }
         protected override void DeleteBtn_Click(object s, RoutedEventArgs e)
         {
@@ -48,7 +47,7 @@ namespace TimerMVVM
         {
             _alarmSettings.FillData(_alarmModel);
         }
-        private void UpdateView(object sender, EventArgs e)
+        protected override void UpdateView()
         {
             StringBuilder sb = new();
             if (_alarmModel.Hour < 10)

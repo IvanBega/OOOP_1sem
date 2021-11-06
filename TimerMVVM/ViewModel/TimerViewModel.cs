@@ -39,7 +39,7 @@ namespace TimerMVVM
                 _timerModel.Active = true;
             }
         }
-        private void UpdateView()
+        protected override void UpdateView()
         {
             StringBuilder sb = new();
             if (_timerModel.Hour < 10)
