@@ -1,11 +1,12 @@
-﻿using System.Windows;
+﻿using lab2.Settings;
+using System.Windows;
 
 namespace TimerMVVM
 {
     /// <summary>
     /// Interaction logic for TimerSettings.xaml
     /// </summary>
-    public partial class TimerSettings : Window
+    public partial class TimerSettings : Window, ISettings<TimerModel>
     {
         private TimerModel _timerModelToFill;
         public TimerSettings()

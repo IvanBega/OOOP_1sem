@@ -1,4 +1,5 @@
-﻿using System;
+﻿using lab2.Settings;
+using System;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
@@ -8,7 +9,7 @@ namespace TimerMVVM
     /// <summary>
     /// Interaction logic for AlarmSettings.xaml
     /// </summary>
-    public partial class AlarmSettings : Window
+    public partial class AlarmSettings : Window, ISettings<AlarmModel>
     {
         public ObservableCollection<BoolStringClass> TheList { get; private set; }
         private AlarmModel _alarmModelToFill;

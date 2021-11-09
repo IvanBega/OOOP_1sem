@@ -1,11 +1,7 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Media;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Xml.Serialization;
 
 namespace TimerMVVM
 {
@@ -24,7 +20,7 @@ namespace TimerMVVM
             _alarmView = new(panel, new RoutedEventHandler(EditBtn_Click), new RoutedEventHandler(DeleteBtn_Click));
             _alarmSettings.ValueChanged += UpdateView;
         }
-        public AlarmViewModel(StackPanel panel,  AlarmModel model)
+        public AlarmViewModel(StackPanel panel, AlarmModel model)
         {
             _alarmModel = model;
             _alarmView = new(panel, new RoutedEventHandler(EditBtn_Click), new RoutedEventHandler(DeleteBtn_Click));
@@ -75,10 +71,10 @@ namespace TimerMVVM
         {
             int hourNow = DateTime.Now.Hour;
             int minuteNow = DateTime.Now.Minute;
-            int dayNow = (int) DateTime.Now.DayOfWeek;
+            int dayNow = (int)DateTime.Now.DayOfWeek;
             if (_alarmSettings.TheList[dayNow].IsSelected && hourNow == _alarmModel.Hour && minuteNow == _alarmModel.Minute)
             {
-                Activate();       
+                Activate();
             }
         }
         protected override void Activate()
